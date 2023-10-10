@@ -48,9 +48,13 @@
 
         @yield('content')
 
+        @guest
+            @include('layouts.partials.footer')
+        @endguest
     </main>
     <!-- Scripts -->
     <!-- Libs JS -->
+
     <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
@@ -67,6 +71,5 @@
 
 </body>
 
-<!-- Mirrored from geeksui.codescandy.com/geeks/pages/dashboard/layouts/layout-horizontal.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 May 2023 12:10:43 GMT -->
 
 </html>
