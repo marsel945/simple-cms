@@ -19,9 +19,7 @@ Route::get('/', function () {
     return view('pages.guest.welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,7 +31,7 @@ require __DIR__ . '/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin/home', [AdminHomeController::class, 'index']);
