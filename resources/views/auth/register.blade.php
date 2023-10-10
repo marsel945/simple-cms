@@ -8,8 +8,7 @@
                 <!-- Card body -->
                 <div class="card-body p-6">
                     <div class="mb-4">
-                        <a href="{{ route('home') }}"><img src="../assets/images/brand/logo/logo-icon.svg" class="mb-4"
-                                alt="logo"></a>
+
                         <h1 class="mb-1 fw-bold">{{ __('Register') }}</h1>
                         <span>Already have an account?
                             <a href="{{ route('login') }}" class="ms-1">{{ __('Login') }}</a></span>
@@ -83,25 +82,7 @@
                                 </button>
                             </div>
                         </div>
-                        <hr class="my-4">
-                        <div class="mt-4 text-center">
-                            <!--Facebook-->
-                            <a href="#" class="btn-social btn-social-outline btn-facebook">
-                                <i class="mdi mdi-facebook fs-4"></i>
-                            </a>
-                            <!--Twitter-->
-                            <a href="#" class="btn-social btn-social-outline btn-twitter">
-                                <i class="mdi mdi-twitter fs-4"></i>
-                            </a>
-                            <!--LinkedIn-->
-                            <a href="#" class="btn-social btn-social-outline btn-linkedin">
-                                <i class="mdi mdi-linkedin"></i>
-                            </a>
-                            <!--GitHub-->
-                            <a href="#" class="btn-social btn-social-outline btn-github">
-                                <i class="mdi mdi-github"></i>
-                            </a>
-                        </div>
+
                     </form>
                 </div>
             </div>
