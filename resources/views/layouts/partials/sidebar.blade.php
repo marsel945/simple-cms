@@ -80,7 +80,9 @@
                     <i class="nav-icon fe fe-book-open me-2"></i> CMS
                 </a>
 
-                <div id="navCMS" class="collapse {{ Request::route()->getPrefix() == '/cms' ? 'show' : '' }}"
+
+                <div id="navCMS"
+                    class="collapse {{ substr(Request::route()->getPrefix(), 0, 3) == 'cms' ? 'show' : '' }}"
                     data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -95,7 +97,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="admin-cms-post-new.html">
+                            <a class="nav-link  {{ Request::routeIs('admin.cms.posts.create') ? 'active' : '' }} "
+                                href="{{ route('admin.cms.posts.create') }}">
                                 New Post
                             </a>
                         </li>
