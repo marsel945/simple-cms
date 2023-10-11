@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostCtroller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.guest.welcome');
-});
+})->name('guest.home');
 
-Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,4 +37,11 @@ Route::get('/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'ind
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin/home', [AdminHomeController::class, 'index']);
+});
+
+Route::middleware('auth', 'isAdmin')->group(function () {
+    Route::prefix('cms')->group(function () {
+        Route::get('/overview', [PostCtroller::class, 'index'])->name('admin.cms.overview');
+        Route::get('/category', [CategoryController::class, 'index'])->name('admin.cms.category');
+    });
 });
