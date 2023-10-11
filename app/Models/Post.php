@@ -11,15 +11,26 @@ class Post extends Model
 
     protected $fillable = [
         'user_id',
-        'category',
+        'category_id',
         'title',
         'slug',
         'excert',
         'content',
+        'status',
     ];
 
     public function attachment()
     {
         return $this->belongsToMany(PostAttachment::class, 'post_attachments', 'post_id');
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 }
