@@ -45,6 +45,7 @@ Route::middleware('auth', 'isAdmin')->group(function () {
         Route::prefix('post')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('admin.cms.posts');
             Route::get('/create', [PostController::class, 'create'])->name('admin.cms.posts.create');
+            Route::post('/store', [PostController::class, 'store'])->name('admin.cms.posts.store');
             Route::post('/datatable', [PostController::class, 'datatable'])->name('admin.cms.posts.datatable');
         });
         Route::prefix('category')->group(function () {
