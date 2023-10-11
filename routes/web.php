@@ -43,5 +43,6 @@ Route::middleware('auth', 'isAdmin')->group(function () {
     Route::prefix('cms')->group(function () {
         Route::get('/overview', [PostCtroller::class, 'index'])->name('admin.cms.overview');
         Route::get('/category', [CategoryController::class, 'index'])->name('admin.cms.category');
+        Route::post('/category', [CategoryController::class, 'store'])->name('admin.cms.category.create');
     });
 });

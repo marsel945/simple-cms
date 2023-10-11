@@ -8,31 +8,32 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="{{ route('admin.cms.category.create') }}" method="POST">
+                    @csrf
                     <div class="mb-3 mb-2">
                         <label class="form-label" for="title">Title<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" placeholder="Write a Category" id="title"
-                            required />
+                        <input type="text" class="form-control" name="title" placeholder="Write a Category"
+                            id="title" required />
                         <small>Field must contain a unique value</small>
                     </div>
                     <div class="mb-3 mb-2">
                         <label class="form-label">Slug</label>
                         <label for="basic-url" class="form-label">Your vanity URL</label>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <span class="input-group-text" id="basic-addon3">https://example.com</span>
-                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" />
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"
+                                name="slug" />
                         </div>
-
                         <small>Field must contain a unique value</small>
                     </div>
                     <div class="mb-3 mb-2">
                         <label class="form-label">Parent</label>
-                        <select class="selectpicker" data-width="100%">
+                        <select class="selectpicker" data-width="100%" name="parent_id">
                             <option value="">Select</option>
-                            <option value="Course">Course</option>
-                            <option value="Tutorial">Tutorial</option>
-                            <option value="Workshop">Workshop</option>
-                            <option value="Company">Company</option>
+                            <option value=q>Course</option>
+                            <option value="1">Tutorial</option>
+                            <option value="2">Workshop</option>
+                            <option value="2">Company</option>
                         </select>
                     </div>
                     <div class="mb-3 mb-3">
@@ -63,7 +64,7 @@
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">
-                            Add New Category
+                            Save
                         </button>
                         <button type="button" class="btn btn-outline-white" data-bs-dismiss="modal">
                             Close
