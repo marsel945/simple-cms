@@ -44,6 +44,7 @@ Route::middleware('auth', 'isAdmin')->group(function () {
         Route::get('/', [AdminHomeController::class, 'renderCmsOverview'])->name('admin.cms.overview');
         Route::prefix('post')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('admin.cms.posts');
+            Route::get('/create', [PostController::class, 'create'])->name('admin.cms.posts.create');
             Route::post('/datatable', [PostController::class, 'datatable'])->name('admin.cms.posts.datatable');
         });
         Route::prefix('category')->group(function () {
