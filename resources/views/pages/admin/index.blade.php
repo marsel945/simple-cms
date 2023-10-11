@@ -28,9 +28,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
     <link rel="canonical" href="layout-horizontal.html">
 
-    <!-- Datatable -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 
+    @stack('customCss')
     <title>Document</title>
 </head>
 
@@ -64,8 +63,6 @@
     <script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
 
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/vendors/chart.js') }}"></script>
 
 
     @stack('customJsQuery')
