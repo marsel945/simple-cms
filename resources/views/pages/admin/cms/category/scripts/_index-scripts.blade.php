@@ -2,7 +2,6 @@
     var table = $("#dataTableCategories");
     $(document).ready(function() {
         table.DataTable({
-            responsive: true,
             processing: true,
             serverSide: true,
             ajax: {
@@ -24,8 +23,8 @@
                 {
                     name: "CATEGORY",
                     data: "category",
-                    orderable: false,
-                    searchable: false,
+                    orderable: true,
+                    searchable: true,
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },
