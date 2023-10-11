@@ -30,7 +30,7 @@
                         <label class="form-label">Parent</label>
                         <select class="selectpicker" data-width="100%" name="parent_id">
                             <option value="">Select</option>
-                            <option value=q>Course</option>
+                            <option value="1">Course</option>
                             <option value="1">Tutorial</option>
                             <option value="2">Workshop</option>
                             <option value="2">Company</option>

@@ -46,7 +46,8 @@
                     </div>
                     <!-- Table -->
                     <div class="table-responsive border-0 overflow-y-hidden">
-                        <table class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox">
+                        <table class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox"
+                            id="dataTableCategories">
                             <thead class="table-light">
                                 <tr>
                                     <th>
@@ -69,460 +70,463 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="accordion-toggle collapsed" id="accordion1" data-bs-toggle="collapse"
-                                    data-bs-parent="#accordion1" data-bs-target="#collapseOne">
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck1">
-                                            <label class="form-check-label" for="categoryCheck1"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit position-relative">
-                                            <h5 class="mb-0 text-primary-hover"><i
-                                                    class="fe fe-chevron-down fs-4 me-2 text-muted position-absolute ms-n4 mt-1"></i>
-                                                Courses
-                                            </h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        desgincourse
-                                    </td>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown1" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown1">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr id="collapseOne">
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck2">
-                                            <label class="form-check-label" for="categoryCheck2"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover ms-3">Child Category</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        childcategory
-                                    </td>
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-warning">Draft</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown2" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown2">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck3">
-                                            <label class="form-check-label" for="categoryCheck3"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Workshop</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        Workshop
-                                    </td>
-                                    <td>
-                                        6
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown3" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown3">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck4">
-                                            <label class="form-check-label" for="categoryCheck4"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Tutorial</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        tutorial
-                                    </td>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown4" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown4">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck5">
-                                            <label class="form-check-label" for="categoryCheck5"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Company</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        company
-                                    </td>
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown5" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown5">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck6">
-                                            <label class="form-check-label" for="categoryCheck6"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Technology</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        technology
-                                    </td>
-                                    <td>
-                                        6
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown6" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown6">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck7">
-                                            <label class="form-check-label" for="categoryCheck7"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Business</h5>
-                                        </a>
-                                    </td>
-                                    <td class="align-middle">
-                                        business
-                                    </td>
-                                    <td class="align-middle">
-                                        2
-                                    </td>
-                                    <td class="align-middle">
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-warning">Draft</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown7" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown7">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck8">
-                                            <label class="form-check-label" for="categoryCheck8"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Technology</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        technology
-                                    </td>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown8" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown8">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck9">
-                                            <label class="form-check-label" for="categoryCheck9"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Business</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        business
-                                    </td>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown9" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown9">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="categoryCheck10">
-                                            <label class="form-check-label" for="categoryCheck10"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Tutorial</h5>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        tutorial
-                                    </td>
-                                    <td>
-                                        4
-                                    </td>
-                                    <td>
-                                        16 Oct, 2020
-                                    </td>
-                                    <td>16 Nov, 2020</td>
-                                    <td>
-                                        <span class="badge bg-success">Live</span>
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown10" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown10">
-                                                <span class="dropdown-header">Action</span>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                    Draft</a>
-                                                <a class="dropdown-item" href="#"><i
-                                                        class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
+
+                                <!--
+                                                                                    <tr class="accordion-toggle collapsed" id="accordion1" data-bs-toggle="collapse"
+                                                                                        data-bs-parent="#accordion1" data-bs-target="#collapseOne">
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck1">
+                                                                                                <label class="form-check-label" for="categoryCheck1"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit position-relative">
+                                                                                                <h5 class="mb-0 text-primary-hover"><i
+                                                                                                        class="fe fe-chevron-down fs-4 me-2 text-muted position-absolute ms-n4 mt-1"></i>
+                                                                                                    Courses
+                                                                                                </h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            desgincourse
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            1
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown1" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown1">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr id="collapseOne">
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck2">
+                                                                                                <label class="form-check-label" for="categoryCheck2"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover ms-3">Child Category</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            childcategory
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            4
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-warning">Draft</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown2" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown2">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck3">
+                                                                                                <label class="form-check-label" for="categoryCheck3"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Workshop</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            Workshop
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            6
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown3" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown3">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck4">
+                                                                                                <label class="form-check-label" for="categoryCheck4"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Tutorial</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            tutorial
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            3
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown4" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown4">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck5">
+                                                                                                <label class="form-check-label" for="categoryCheck5"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Company</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            company
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            4
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown5" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown5">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck6">
+                                                                                                <label class="form-check-label" for="categoryCheck6"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Technology</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            technology
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            6
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown6" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown6">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="align-middle">
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck7">
+                                                                                                <label class="form-check-label" for="categoryCheck7"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Business</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td class="align-middle">
+                                                                                            business
+                                                                                        </td>
+                                                                                        <td class="align-middle">
+                                                                                            2
+                                                                                        </td>
+                                                                                        <td class="align-middle">
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-warning">Draft</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown7" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown7">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td class="align-middle">
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck8">
+                                                                                                <label class="form-check-label" for="categoryCheck8"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Technology</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            technology
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            1
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown8" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown8">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck9">
+                                                                                                <label class="form-check-label" for="categoryCheck9"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Business</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            business
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            1
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown9" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown9">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <div class="form-check">
+                                                                                                <input type="checkbox" class="form-check-input" id="categoryCheck10">
+                                                                                                <label class="form-check-label" for="categoryCheck10"></label>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <a href="#" class="text-inherit">
+                                                                                                <h5 class="mb-0 text-primary-hover">Tutorial</h5>
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            tutorial
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            4
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            16 Oct, 2020
+                                                                                        </td>
+                                                                                        <td>16 Nov, 2020</td>
+                                                                                        <td>
+                                                                                            <span class="badge bg-success">Live</span>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="dropdown dropstart">
+                                                                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                                                                    role="button" id="courseDropdown10" data-bs-toggle="dropdown"
+                                                                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                                                                    <i class="fe fe-more-vertical"></i>
+                                                                                                </a>
+                                                                                                <span class="dropdown-menu" aria-labelledby="courseDropdown10">
+                                                                                                    <span class="dropdown-header">Action</span>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                                                                                                        Draft</a>
+                                                                                                    <a class="dropdown-item" href="#"><i
+                                                                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                -->
                                 <tr>
                                     <td>
                                         <div class="form-check">
@@ -532,7 +536,7 @@
                                     </td>
                                     <td>
                                         <a href="#" class="text-inherit">
-                                            <h5 class="mb-0 text-primary-hover">Workshop</h5>
+                                            <h5 class="mb-0 text-primary-hover"></h5>
                                         </a>
                                     </td>
                                     <td>
@@ -587,4 +591,14 @@
 
 
     <script src="{{ asset('assets/js/vendors/editor.js') }}"></script>
+    <script src="{{ asset('assets/js/admin/datatable_index.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/r-2.4.1/datatables.min.js"></script>
+    @include('pages.admin.cms.category.scripts._index-scripts')
 @endpush

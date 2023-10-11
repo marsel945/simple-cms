@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateCategoryRequest;
+use Throwable;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\CreateCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -14,7 +17,54 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.cms.category.index');
+        $data = Category::all();
+        return view('pages.admin.cms.category.index', compact('data'));
+    }
+
+    /**
+     * Render datatable serverside
+     * 
+     */
+    public function datatable(Request $request)
+    {
+        $query = Category::query()->orderBy('updated_at');
+
+        return DataTables::of($query)
+            ->addColumn('check', function ($item) {
+                $element = '<div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="categoryCheck1">
+                            <label class="form-check-label" for="categoryCheck1"></label>
+                            </div>';
+                return $element;
+            })
+            ->addColumn('category', fn ($item) => $item->title)
+            ->addColumn('slug', fn ($item) => $item->slug)
+            ->addColumn('posts', fn ($item) => 1)
+            ->addColumn('date_created', fn ($item) => $item->created_at)
+            ->addColumn('date_updated', fn ($item) => $item->updated_at)
+            ->addColumn('status', fn ($item) => $item->status)
+            ->addColumn('action', function ($item) {
+                $element = ' <span class="dropdown dropstart">
+                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                    role="button" id="courseDropdown2" data-bs-toggle="dropdown"
+                    data-bs-offset="-20,20" aria-expanded="false">
+                    <i class="fe fe-more-vertical"></i>
+                </a>
+                <span class="dropdown-menu" aria-labelledby="courseDropdown2">
+                    <span class="dropdown-header">Action</span>
+                    <a class="dropdown-item" href="#"><i
+                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
+                    <a class="dropdown-item" href="#"><i
+                            class="fe fe-inbox dropdown-item-icon"></i>Moved
+                        Draft</a>
+                    <a class="dropdown-item" href="#"><i
+                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
+                </span>
+            </span>';
+                return $element;
+            })
+            ->rawColumns(['check', 'action'])
+            ->make(true);
     }
 
     /**
@@ -30,8 +80,24 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $data = $request->all();
-        dd($data);
+        try {
+
+            DB::beginTransaction();
+            $category = new Category();
+
+            $category->parent_id = $request->parent;
+            $category->title = $request->title;
+            $category->slug = $request->slug;
+            $category->status = 'draft';
+
+            $category->save();
+            DB::commit();
+            return redirect()->back()->with('success', "Sukses Menyimpan Data");
+        } catch (Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     /**
