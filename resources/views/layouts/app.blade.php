@@ -39,19 +39,16 @@
         @if (!Request::routeIs('login') && !Request::routeIs('register'))
             @include('layouts.partials.navbar')
         @endif
-        <!-- Page Content -->
-
-
-        <!-- navbar -->
 
         <!-- content -->
 
         @yield('content')
 
-        @guest
-            @include('layouts.partials.footer')
-        @endguest
+        @include('layouts.partials.footer')
     </main>
+
+
+
     <!-- Scripts -->
     <!-- Libs JS -->
 
