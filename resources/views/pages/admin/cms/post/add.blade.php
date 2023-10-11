@@ -57,96 +57,67 @@
                             <i class="fe fe-link me-1"></i>
                             Link
                         </button>
-                        <form action="#" class="dropzone mt-4 border-dashed rounded-2 min-h-0">
+                        <form action="#" class="dropzone mt-4 border-dashed rounded-2 min-h-0"
+                            enctype="multipart/form-data">
                             <div class="fallback">
                                 <input name="file" type="file" multiple>
                             </div>
                         </form>
                         <div class="mt-4">
-                            <form>
+                            <form action="{{ route('admin.cms.posts.store') }}" method="POST">
+                                @csrf
                                 <!-- Form -->
                                 <div class="row">
-                                    <!-- Date -->
-                                    <div class="mb-3 col-md-4">
-                                        <label for="selectDate" class="form-label">Date</label>
-                                        <input type="text" id="selectDate" class="form-control text-dark flatpickr"
-                                            placeholder="Select Date">
-                                    </div>
-                                    <div class="mb-3 col-md-9">
+                                    <div class="mb-3 col-md-12">
                                         <!-- Title -->
                                         <label for="postTitle" class="form-label">Title</label>
-                                        <input type="text" id="postTitle" class="form-control text-dark"
+                                        <input type="text" id="postTitle" name="postTitle" class="form-control text-dark"
                                             placeholder="Post Title">
                                         <small>Keep your post titles under 60 characters. Write
                                             heading that describe the topic content.
                                             Contextualize for Your Audience.</small>
                                     </div>
                                     <!-- Slug -->
-                                    <div class="mb-3 col-md-9">
+                                    <div class="mb-3 col-md-12">
                                         <label for="basic-url" class="form-label">Slug</label>
                                         <div class="input-group mb-1">
                                             <span class="input-group-text" id="basic-addon3">https://example.com/</span>
-                                            <input type="text" class="form-control" id="basic-url"
+                                            <input type="text" class="form-control" id="basic-url" name="postSlug"
                                                 aria-describedby="basic-addon3">
                                         </div>
                                         <small>Field must contain an unique value</small>
                                     </div>
                                     <!-- Excerpt -->
-                                    <div class="mb-3 col-md-9">
+                                    <div class="mb-3 col-md-12">
                                         <label for="Excerpt" class="form-label">Excerpt</label>
-                                        <textarea rows="3" id="Excerpt" class="form-control text-dark" placeholder="Excerpt"></textarea>
+                                        <textarea rows="3" id="Excerpt" class="form-control text-dark" placeholder="Excerpt" name="postExcerpt"></textarea>
                                         <small>A short extract from writing.</small>
                                     </div>
                                     <!-- Category -->
-                                    <div class="mb-3 col-md-9">
+                                    <div class="mb-3 col-md-6">
                                         <label class="form-label">Category</label>
-                                        <select class="selectpicker" data-width="100%">
-                                            <option value="">Course</option>
-                                            <option value="Post Category">
-                                                Post Category
-                                            </option>
-                                            <option value="Workshop">Workshop</option>
-                                            <option value="Marketing">Marketing</option>
+                                        <select class="selectpicker" data-width="100%" name="category">
+                                            <option value="">--Select Category--</option>
+                                            @foreach ($data['categories'] as $category)
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Editor -->
+                                <div class="mt-2 mb-4">
+                                    <textarea id="editor" name="content">
+                                        <h4>One Ring to Rule Them All</h4>
+                                    </textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary"> Publish </button>
+                                <!-- button -->
+                                <a href="#" class="btn btn-outline-secondary">
+                                    Save to Draft
+                                </a>
                             </form>
                         </div>
-                        <!-- Editor -->
-                        <div class="mt-2 mb-4">
-                            <div id="editor">
-                                <br>
-                                <h4>One Ring to Rule Them All</h4>
-                                <br>
-                                <p>
-                                    Three Rings for the
-                                    <i> Elven-kingsunder</i> the sky, <br>
-                                    Seven for the <u>Dwarf-lords</u> in halls of stone,
-                                    Nine for Mortal Men, <br>
-                                    doomed to die, One for the Dark Lord on his dark
-                                    throne. <br>
-                                    In the Land of Mordor where the Shadows lie.
-                                    <br>
-                                    <br>
-                                </p>
-                                <p>
-                                    One Ring to
-                                    <b>rule</b> them all, <br>
-                                    One Ring to find them, <br>
-                                    One Ring to bring them all and in the darkness bind
-                                    them. <br>
-                                    In the Land of Mordor where the Shadows lie.
-                                </p>
-                                <p>
-                                    <br>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- button -->
-                        <a href="#" class="btn btn-primary"> Publish </a>
-                        <a href="#" class="btn btn-outline-secondary">
-                            Save to Draft
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -248,5 +219,15 @@
     <script src="{{ asset('assets/libs/dropzone/dist/min/dropzone.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/libs/quill/dist/quill.min.js') }}"></script>
-    <script src="{{ asset('assets/js/vendors/editor.js') }}"></script>
+
+    <!--CKEDITOR -->
+
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            CKEDITOR.replace('editor');
+        })
+    </script>
 @endpush
