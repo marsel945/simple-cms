@@ -22,9 +22,9 @@ class CreatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|min:8|max:255',
-            'slug' => 'unique:posts,slug',
-            'excert' => 'string|min:8|max:255',
+            'posTitle' => 'required|string|min:8|max:255',
+            'postSlug' => 'unique:posts,slug',
+            'postExcerpt' => 'string|min:8|max:255',
             'content' => 'required'
         ];
     }
