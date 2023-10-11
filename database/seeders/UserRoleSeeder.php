@@ -13,14 +13,19 @@ class UserRoleSeeder extends Seeder
      */
     public function run(): void
     {
+        $now = now();
         DB::table('user_roles')->insert([
             [
                 'name' => 'Super Admin',
                 'description' => fake()->sentence(50),
+                'created_at' => $now,
+                'updated_at' => $now,
             ],
             [
                 'name' => 'Guest',
                 'description' => fake()->sentence(50),
+                'created_at' => $now,
+                'updated_at' => $now,
             ]
         ]);
     }
