@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FormatDate;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreatePostRequest;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -90,15 +92,17 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.cms.post.add');
+        $data['categories'] = Category::all();
+        $data['title'] = 'Add Post';
+        return view('pages.admin.cms.post.add', compact('data'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        dd("halo");
     }
 
     /**
