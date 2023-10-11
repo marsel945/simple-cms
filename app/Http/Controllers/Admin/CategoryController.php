@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\FormatDate;
 use Throwable;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -17,8 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::all();
-        return view('pages.admin.cms.category.index', compact('data'));
+        return view('pages.admin.cms.category.index');
     }
 
     /**
@@ -39,10 +39,19 @@ class CategoryController extends Controller
             })
             ->addColumn('category', fn ($item) => $item->title)
             ->addColumn('slug', fn ($item) => $item->slug)
-            ->addColumn('posts', fn ($item) => 1)
-            ->addColumn('date_created', fn ($item) => $item->created_at)
-            ->addColumn('date_updated', fn ($item) => $item->updated_at)
-            ->addColumn('status', fn ($item) => $item->status)
+            ->addColumn('posts', fn ($item) => $item->post->count())
+            ->addColumn('date_created', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
+            ->addColumn('date_updated', fn ($item) => FormatDate::getDateTimeCutMonth($item->updated_at))
+            ->addColumn('status', function ($item) {
+                $element = '';
+                if ($item->status == 'live') {
+                    $element .= '<span class="badge bg-success">Live</span>';
+                } else {
+                    $element .= '<span class="badge bg-warning">Draft</span>';
+                }
+
+                return $element;
+            })
             ->addColumn('action', function ($item) {
                 $element = ' <span class="dropdown dropstart">
                 <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
@@ -63,7 +72,7 @@ class CategoryController extends Controller
             </span>';
                 return $element;
             })
-            ->rawColumns(['check', 'action'])
+            ->rawColumns(['check', 'action', 'status'])
             ->make(true);
     }
 
