@@ -11,4 +11,9 @@ class AdminHomeController extends Controller
     {
         return view('pages.admin.home');
     }
+
+    public function renderCmsOverview()
+    {
+        return view('pages.admin.cms.index');
+    }
 }

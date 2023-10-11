@@ -79,6 +79,7 @@
                     aria-expanded="false" aria-controls="navCMS">
                     <i class="nav-icon fe fe-book-open me-2"></i> CMS
                 </a>
+
                 <div id="navCMS" class="collapse {{ Request::route()->getPrefix() == '/cms' ? 'show' : '' }}"
                     data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
@@ -89,7 +90,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  " href="admin-cms-post.html">
+                            <a class="nav-link  " href="{{ route('admin.cms.posts') }}">
                                 All Post
                             </a>
                         </li>
