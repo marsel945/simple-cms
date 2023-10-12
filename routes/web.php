@@ -44,6 +44,8 @@ Route::middleware('auth', 'isAdmin')->group(function () {
         Route::get('/', [AdminHomeController::class, 'renderCmsOverview'])->name('admin.cms.overview');
         Route::prefix('post')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('admin.cms.posts');
+            Route::post('/upload/attachment', [PostController::class, 'uploadAttachmentFile'])->name('admin.cms.post.upload.attachment');
+            Route::delete('/delete/attachment', [PostController::class, 'deleteAttachmentFile'])->name('admin.cms.post.delete.attachment');
             Route::get('/create', [PostController::class, 'create'])->name('admin.cms.posts.create');
             Route::post('/store', [PostController::class, 'store'])->name('admin.cms.posts.store');
             Route::post('/datatable', [PostController::class, 'datatable'])->name('admin.cms.posts.datatable');
