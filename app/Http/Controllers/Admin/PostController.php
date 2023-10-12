@@ -161,7 +161,7 @@ class PostController extends Controller
                     'file' =>  $temporaryAttachmentFile->file,
                     'path' => $temporaryAttachmentFile->folder . '/' . $temporaryAttachmentFile->file
                 ]);
-
+                Storage::deleteDirectory('images/tmp/' . $temporaryAttachmentFile->folder);
                 $temporaryAttachmentFile->delete();
             }
             DB::commit();
