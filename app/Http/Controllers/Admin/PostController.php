@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
+use App\Models\PostAttachment;
+use App\Models\TemporaryPostAttachment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
@@ -41,10 +44,10 @@ class PostController extends Controller
                 return $element;
             })
             ->addColumn('title', fn ($item) => $item->title)
-            ->addColumn('category', fn ($item) => Post::find($item->category_id)->category->title)
+            ->addColumn('category', fn ($item) => $item->category->title)
             ->addColumn('date', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
             ->addColumn('author', function ($item) {
-                $author = Post::find($item->user_id)->author->name;
+                $author = $item->author->name;
                 $element = '';
                 $element .= '<div class="d-flex align-items-center">';
                 $element .= '<img src="../../assets/images/avatar/avatar-7.jpg"';
@@ -99,11 +102,44 @@ class PostController extends Controller
         return view('pages.admin.cms.post.add', compact('data'));
     }
 
+    public function uploadAttachmentFile(Request $request)
+    {
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $fileName = $image->getClientOriginalName();
+            $folder = uniqid('post-image-', true);
+            $image->storeAs('images/tmp/' . $folder, $fileName);
+            TemporaryPostAttachment::create([
+                'folder' => $folder,
+                'file' => $fileName
+            ]);
+
+            return $folder;
+        }
+
+        return '';
+    }
+
+    public function deleteAttachmentFile()
+    {
+        $temporaryAttachmentFile = TemporaryPostAttachment::where('folder', request()->getContent())->first();
+        if ($temporaryAttachmentFile) {
+            Storage::deleteDirectory('images/tmp/' . $temporaryAttachmentFile->folder);
+            $temporaryAttachmentFile->delete();
+        }
+
+        return response()->noContent();
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(CreatePostRequest $request)
     {
+        $temporaryAttachmentFiles = TemporaryPostAttachment::all();
+
         try {
             DB::beginTransaction();
 
@@ -117,10 +153,25 @@ class PostController extends Controller
             $newPost->content = $request->content;
 
             $newPost->save();
+
+            foreach ($temporaryAttachmentFiles as $temporaryAttachmentFile) {
+                Storage::copy('images/tmp/' . $temporaryAttachmentFile->folder . '/' . $temporaryAttachmentFile->file, 'images/' . $temporaryAttachmentFile->folder . '/' . $temporaryAttachmentFile->file);
+                PostAttachment::create([
+                    'post_id' => $newPost->id,
+                    'file' =>  $temporaryAttachmentFile->file,
+                    'path' => $temporaryAttachmentFile->folder . '/' . $temporaryAttachmentFile->file
+                ]);
+
+                $temporaryAttachmentFile->delete();
+            }
             DB::commit();
 
             return to_route('admin.cms.posts')->with('success', 'Sukses Menambahkan Postingan Baru');
         } catch (\Throwable $th) {
+            foreach ($temporaryAttachmentFiles as $temporaryAttachmentFile) {
+                Storage::deleteDirectory('images/tmp/' . $temporaryAttachmentFile->folder);
+                $temporaryAttachmentFile->delete();
+            }
             DB::rollBack();
             dd($th->getMessage());
         }
