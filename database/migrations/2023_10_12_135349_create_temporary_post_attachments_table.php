@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_attachments', function (Blueprint $table) {
+        Schema::create('temporary_post_attachments', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('post_id')->references('id')->on('posts');
+            $table->string('folder');
             $table->string('file');
-            $table->string('path');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_attachments');
+        Schema::dropIfExists('temporary_post_attachments');
     }
 };
