@@ -150,11 +150,6 @@
     <!--CKEDITOR -->
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
-    <!-- FilePond Js -->
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-
-
     <script>
         FilePond.registerPlugin(FilePondPluginImagePreview);
         // Get a reference to the file input element
