@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.cms.post.index');
+        return view('admin.pages.cms.post.index');
     }
 
     /**
@@ -43,7 +43,7 @@ class PostController extends Controller
                             </div>';
                 return $element;
             })
-            ->addColumn('title', fn ($item) => $item->title)
+            ->addColumn('title', fn ($item) => substr($item->title, 0, 10) . '....')
             ->addColumn('category', fn ($item) => $item->category->title)
             ->addColumn('date', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
             ->addColumn('author', function ($item) {
@@ -77,7 +77,7 @@ class PostController extends Controller
                 $element .= '</a>';
                 $element .= '<span class="dropdown-menu" aria-labelledby="courseDropdown1">';
                 $element .= '<span class="dropdown-header">Settings</span>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-edit dropdown-item-icon"></i>Edit</a>';
+                $element .= '<a class="dropdown-item" href="' . route('admin.cms.post.edit', $item->slug) . '"><i class="fe fe-edit dropdown-item-icon"></i>Edit</a>';
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-move dropdown-item-icon"></i>Move</a>';
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-copy dropdown-item-icon"></i>Copy</a>';
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-toggle-left dropdown-item-icon"></i>Publish</a>';
@@ -99,7 +99,7 @@ class PostController extends Controller
     {
         $data['categories'] = Category::all();
         $data['title'] = 'Add Post';
-        return view('pages.admin.cms.post.add', compact('data'));
+        return view('admin.pages.cms.post.add', compact('data'));
     }
 
     public function uploadAttachmentFile(Request $request)
@@ -166,7 +166,7 @@ class PostController extends Controller
             }
             DB::commit();
 
-            return to_route('admin.cms.posts')->with('success', 'Sukses Menambahkan Postingan Baru');
+            return to_route('admin.cms.posts')->with('success', trans('response.success.store', ['data' => 'Post']));
         } catch (\Throwable $th) {
             foreach ($temporaryAttachmentFiles as $temporaryAttachmentFile) {
                 Storage::deleteDirectory('images/tmp/' . $temporaryAttachmentFile->folder);
@@ -188,9 +188,13 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(string $slug)
     {
-        //
+        $find_post = Post::where('slug', $slug)->firstOrFail();
+
+        $data['categories'] = Category::all();
+        $data['post'] = $find_post;
+        return view('admin.pages.cms.post.edit', compact('data'));
     }
 
     /**
