@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Post;
+use App\Models\Category;
 use App\Helpers\FormatDate;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
-use App\Models\Category;
-use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
@@ -102,7 +104,26 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        dd("halo");
+        try {
+            DB::beginTransaction();
+
+            $newPost = new Post();
+
+            $newPost->user_id = Auth::user()->id;
+            $newPost->category_id = $request->category_id;
+            $newPost->title = $request->title;
+            $newPost->slug = $request->slug;
+            $newPost->excerpt = $request->excerpt;
+            $newPost->content = $request->content;
+
+            $newPost->save();
+            DB::commit();
+
+            return to_route('admin.cms.posts')->with('success', 'Sukses Menambahkan Postingan Baru');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            dd($th->getMessage());
+        }
     }
 
     /**
