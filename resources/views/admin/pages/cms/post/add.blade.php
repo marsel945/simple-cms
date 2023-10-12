@@ -1,4 +1,4 @@
-@extends('pages.admin.index')
+@extends('admin.index')
 
 @push('customCss')
     <link rel="stylesheet" href="{{ asset('assets/libs/bootstrap-select/dist/css/bootstrap-select.min.css') }}" />
@@ -71,7 +71,7 @@
                             <form action="{{ route('admin.cms.posts.store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3 col-md-12">
-                                    <input name="image" type="file" multiple>
+                                    <input class="form-control text-dark" name="image" type="file" multiple>
                                 </div>
                                 <!-- Form -->
                                 <div class="row">

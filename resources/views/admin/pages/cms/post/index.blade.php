@@ -1,4 +1,4 @@
-@extends('pages.admin.index')
+@extends('admin.index')
 
 @push('customCss')
     <!-- Datatable Css -->
@@ -78,7 +78,7 @@
                                     <!-- Table -->
                                     <table
                                         class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox table-centered table-hover"
-                                        id="dataTablePosts">
+                                        id="dataTablePosts" style="width: 100%">
                                         <!-- Table Head -->
                                         <thead class="table-light">
                                             <tr>
@@ -105,48 +105,15 @@
 
                         </div>
                     </div>
-                    <!-- Card Footer -->
 
-                    <!--
-                                                    <div class="card-footer">
-                                                        <nav aria-label="Page navigation example">
-                                                            <ul class="pagination justify-content-center mb-0">
-                                                                <li class="page-item disabled">
-                                                                    <a class="page-link mx-1 rounded" href="#" tabindex="-1"
-                                                                        aria-disabled="true"><i class="mdi mdi-chevron-left"></i></a>
-                                                                </li>
-                                                                <li class="page-item active">
-                                                                    <a class="page-link mx-1 rounded" href="#">1</a>
-                                                                </li>
-                                                                <li class="page-item">
-                                                                    <a class="page-link mx-1 rounded" href="#">2</a>
-                                                                </li>
-                                                                <li class="page-item">
-                                                                    <a class="page-link mx-1 rounded" href="#">3</a>
-                                                                </li>
-                                                                <li class="page-item">
-                                                                    <a class="page-link mx-1 rounded" href="#"><i
-                                                                            class="mdi mdi-chevron-right"></i></a>
-                                                                </li>
-                                                            </ul>
-                                                        </nav>
-                                                    </div>
-
-                                                -->
                 </div>
             </div>
         </div>
     </section>
 @endsection
 @push('customJsQuery')
-    <script src="{{ asset('assets/js/admin/datatable_index.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/r-2.4.1/datatables.min.js"></script>
-    @include('pages.admin.cms.post.scripts._index-scripts')
+    @include('admin.pages.cms.post.scripts._index-scripts')
 @endpush

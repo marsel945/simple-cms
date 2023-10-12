@@ -21,8 +21,8 @@
                     },
                 },
                 {
-                    name: "CATEGORY",
-                    data: "category",
+                    name: "title",
+                    data: "title",
                     orderable: true,
                     searchable: true,
                     render: function(d) {
@@ -32,6 +32,8 @@
                 {
                     name: "slug",
                     data: "slug",
+                    orderable: true,
+                    searchable: true
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },
@@ -39,6 +41,8 @@
                 {
                     name: "posts",
                     data: "posts",
+                    orderable: false,
+                    searchable: false,
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },
@@ -53,6 +57,8 @@
                 {
                     name: "date_updated",
                     data: "date_updated",
+                    orderable: false,
+                    searchable: false,
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },
@@ -67,6 +73,8 @@
                 {
                     name: "",
                     data: "action",
+                    orderable: false,
+                    searchable: false,
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },

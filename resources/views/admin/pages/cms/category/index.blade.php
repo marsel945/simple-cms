@@ -1,4 +1,4 @@
-@extends('pages.admin.index')
+@extends('admin.index')
 
 @push('customCss')
     <!-- Bootsrap Select Css -->
@@ -52,9 +52,9 @@
                         </form>
                     </div>
                     <!-- Table -->
-                    <div class="table-responsive border-0 overflow-y-hidden">
-                        <table class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox"
-                            id="dataTableCategories">
+                    <div class="table-responsive ">
+                        <table class="table mb-0 text-nowrap table-centered table-hover table-centered table-with-checkbox"
+                            id="dataTableCategories" style="width: 100%">
                             <thead class="table-light">
                                 <tr>
                                     <th>
@@ -63,16 +63,12 @@
                                             <label class="form-check-label" for="checkAll"></label>
                                         </div>
                                     </th>
-                                    <th>CATEGORY</th>
+                                    <th>TITLE</th>
                                     <th>SLUG</th>
                                     <th>POSTS</th>
-                                    <th> DATE CREATED</th>
-                                    <th>
-                                        DATE UPDATED
-                                    </th>
-                                    <th>
-                                        STATUS
-                                    </th>
+                                    <th>DATE CREATED</th>
+                                    <th>DATE UPDATED</th>
+                                    <th>STATUS</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -87,23 +83,14 @@
 @endsection
 
 @section('modal')
-    @include('pages.admin.cms.category.modals.add')
+    @include('admin.pages.cms.category.modals.add')
 @endsection
 
 @push('customJsQuery')
     <script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/quill/dist/quill.min.js') }}"></script>
-
-
-    <script src="{{ asset('assets/js/vendors/editor.js') }}"></script>
-    <script src="{{ asset('assets/js/admin/datatable_index.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
-    <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.13.4/r-2.4.1/datatables.min.js"></script>
-    @include('pages.admin.cms.category.scripts._index-scripts')
+    @include('admin.pages.cms.category.scripts._index-scripts');
 @endpush

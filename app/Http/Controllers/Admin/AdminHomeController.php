@@ -9,11 +9,11 @@ class AdminHomeController extends Controller
 {
     public function index()
     {
-        return view('pages.admin.home');
+        return view('admin.home');
     }
 
     public function renderCmsOverview()
     {
-        return view('pages.admin.cms.index');
+        return view('admin.pages.cms.index');
     }
 }

@@ -23,6 +23,9 @@
 
 
 
+    <link href="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css
+    " rel="stylesheet">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
@@ -30,10 +33,16 @@
 
 
     @stack('customCss')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
+                            "></script>
     <title>Document</title>
 </head>
 
 <body>
+
+    <div class="berhasil" data-berhasil="{{ ucWords(Session::get('success')) }}"></div>
+    <div class="gagal" data-gagal="{{ ucWords(Session::get('error')) }}"></div>
+    <div class="warning" data-warning="{{ ucWords(Session::get('warning')) }}"></div>
     <!-- Wrapper -->
 
     <div id="db-wrapper">
@@ -63,7 +72,7 @@
     <script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
 
-
+    @include('admin.generals._sweetalert')
 
     @stack('customJsQuery')
 </body>

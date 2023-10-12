@@ -1,4 +1,4 @@
-@extends('pages.admin.index')
+@extends('admin.index')
 
 @section('content')
     <section class="container-fluid p-4">

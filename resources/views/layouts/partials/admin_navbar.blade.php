@@ -1,6 +1,6 @@
 <!-- Page Header -->
 
-<div class="header">
+<div class="header" style="position: stick; top:0px;">
     <!-- navbar -->
     <nav class="navbar-default navbar navbar-expand-lg">
         <a id="nav-toggle" href="#">
