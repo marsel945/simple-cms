@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\AdminHomeController;
 */
 
 Route::get('/', function () {
-    return view('pages.guest.welcome');
+    return view('guest.welcome');
 })->name('guest.home');
 
 Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
@@ -46,13 +46,14 @@ Route::middleware('auth', 'isAdmin')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('admin.cms.posts');
             Route::post('/upload/attachment', [PostController::class, 'uploadAttachmentFile'])->name('admin.cms.post.upload.attachment');
             Route::delete('/delete/attachment', [PostController::class, 'deleteAttachmentFile'])->name('admin.cms.post.delete.attachment');
+            Route::get('/edit/{slug}', [PostController::class, 'edit'])->name('admin.cms.post.edit');
             Route::get('/create', [PostController::class, 'create'])->name('admin.cms.posts.create');
             Route::post('/store', [PostController::class, 'store'])->name('admin.cms.posts.store');
             Route::post('/datatable', [PostController::class, 'datatable'])->name('admin.cms.posts.datatable');
         });
         Route::prefix('category')->group(function () {
             Route::get('/', [CategoryController::class, 'index'])->name('admin.cms.category');
-            Route::post('datatable', [CategoryController::class, 'datatable'])->name('admin.cms.category.datatable');
+            Route::post('/datatable', [CategoryController::class, 'datatable'])->name('admin.cms.category.datatable');
             Route::post('/', [CategoryController::class, 'store'])->name('admin.cms.category.create');
         });
     });
