@@ -43,7 +43,7 @@
                     <div class="card-body">
 
                         <div class="">
-                            <form action="{{ route('admin.cms.posts.store') }}" method="POST">
+                            <form action="{{ route('admin.cms.posts.store', $data['post']->slug) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <!-- Form -->
@@ -151,21 +151,6 @@
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
     <script>
-        FilePond.registerPlugin(FilePondPluginImagePreview);
-        // Get a reference to the file input element
-        const inputElement = document.querySelector('input[type="file"]');
-
-        // Create a FilePond instance
-        const pond = FilePond.create(inputElement);
-        FilePond.setOptions({
-            server: {
-                process: "{{ route('admin.cms.post.upload.attachment') }}",
-                revert: "{{ route('admin.cms.post.delete.attachment') }}",
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                }
-            },
-        });
         $(document).ready(function() {
 
             CKEDITOR.replace('editor');
