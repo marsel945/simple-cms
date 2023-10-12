@@ -18,16 +18,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.cms.category.index');
+        $data['categories'] = Category::all();
+        return view('admin.pages.cms.category.index', compact('data'));
     }
 
     /**
      * Render datatable serverside
      * 
      */
-    public function datatable(Request $request)
+    public function datatable()
     {
-        $query = Category::query()->orderBy('updated_at');
+        $query = Category::query()->get();
 
         return DataTables::of($query)
             ->addColumn('check', function ($item) {
@@ -37,7 +38,7 @@ class CategoryController extends Controller
                             </div>';
                 return $element;
             })
-            ->addColumn('category', fn ($item) => $item->title)
+            ->addColumn('title', fn ($item) => $item->title)
             ->addColumn('slug', fn ($item) => $item->slug)
             ->addColumn('posts', fn ($item) => $item->post->count())
             ->addColumn('date_created', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
@@ -94,9 +95,9 @@ class CategoryController extends Controller
             DB::beginTransaction();
             $category = new Category();
 
-            $category->parent_id = $request->parent;
+            $category->parent_id = $request->parent_id;
             $category->title = $request->title;
-            $category->slug = $request->slug;
+            $category->slug = $category->slug;
             $category->status = 'draft';
 
             $category->save();
