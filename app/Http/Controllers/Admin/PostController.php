@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\PostAttachment;
 use App\Models\TemporaryPostAttachment;
 use Illuminate\Support\Facades\Auth;
@@ -82,7 +83,12 @@ class PostController extends Controller
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-copy dropdown-item-icon"></i>Copy</a>';
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-toggle-left dropdown-item-icon"></i>Publish</a>';
                 $element .= '<a class="dropdown-item" href="#"><i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish</a>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-trash dropdown-item-icon"></i>Delete</a>';
+
+                $element .= '<form  id="delete-' . $item->id . '" action="' . route('admin.cms.post.destroy', $item->id) . '" method="POST">';
+                $element .= method_field('DELETE');
+                $element .= csrf_field();
+                $element .= '<button class="dropdown-item" type="button"  data-id ="' . $item->id . '" data-url_delete="' . route('admin.cms.post.destroy', $item->id) . '" onclick="alertConfirm(this)" data-id="' . $item->id . '"><i class="fe fe-trash dropdown-item-icon"></i>Delete</button>';
+                $element .= '</form>';
                 $element .= '</span></span>';
 
                 return $element;
@@ -202,16 +208,27 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, string $slug)
     {
-        return "update";
+
+        try {
+            DB::beginTransaction();
+            $find_post = Post::where('slug', $slug)->firstOrFail();
+            $find_post->slug = null;
+            $find_post->update($request->validated());
+            DB::commit();
+            return to_route('admin.cms.posts')->with('success', trans('response.success.update', ['data' => 'Post']));
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        return "delete";
     }
 }

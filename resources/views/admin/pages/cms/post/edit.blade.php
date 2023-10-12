@@ -43,10 +43,9 @@
                     <div class="card-body">
 
                         <div class="">
-                            <form action="{{ route('admin.cms.posts.store', $data['post']->slug) }}" method="POST">
-                                @csrf
+                            <form action="{{ route('admin.cms.post.update', $data['post']->slug) }}" method="POST">
                                 @method('PATCH')
-                                <!-- Form -->
+                                @csrf
                                 <div class="row">
                                     <div class="mb-3 col-md-12">
                                         <!-- Title -->
