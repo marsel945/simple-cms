@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container-fluid px-0">
+    <div class="container px-0">
         <a class="navbar-brand" href="">
             <h1>M</h1>
         </a>
@@ -247,13 +247,15 @@
                         </div>
                     </li>
                 @endauth
-
                 @guest
-                    <li class="dropdown ms-2">
-                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Sign In') }}</a>
-                    </li>
+
                 @endguest
             </ul>
+            @guest
+                <a
+                    class="btn btn-outline-primary shadow-sm me-1 d-none d-md-block"href="{{ route('login') }}">{{ __('Sign In') }}</a>
+                <a href="{{ route('register') }}" class="btn btn-primary d-none d-md-block">{{ __('Sign Up') }}</a>
+            @endguest
 
         </div>
         <div>
@@ -925,6 +927,8 @@
                         </li>
                     @endif
                 @endauth
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarBrowse" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" data-bs-display="static">
@@ -1051,6 +1055,17 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                <li class="nav-item mt-2 mb-2">
+                    <a
+                        class="btn btn-outline-primary shadow-sm me-1 d-md-none d-block"href="{{ route('login') }}">{{ __('Sign In') }}</a>
+
+                </li>
+                <li class="nav-item mb-2">
+
+                    <a href="{{ route('register') }}"
+                        class="btn btn-primary d-md-none d-block">{{ __('Sign Up') }}</a>
                 </li>
 
             </ul>

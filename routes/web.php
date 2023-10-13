@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\GuestHomePageContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,8 @@ use App\Http\Controllers\Admin\AdminHomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-})->name('guest.home');
+// Guest Routes
+Route::get('/', GuestHomePageContoller::class)->name('guest.home');
 
 Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
 
