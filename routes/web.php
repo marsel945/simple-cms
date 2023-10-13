@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\GuestHomePageContoller;
+use App\Http\Controllers\PostSingleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ use App\Http\Controllers\GuestHomePageContoller;
 
 // Guest Routes
 Route::get('/', GuestHomePageContoller::class)->name('guest.home');
+Route::get('/post/{slug}', PostSingleController::class)->name('guest.post.single');
 
 Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
 
