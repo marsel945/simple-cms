@@ -23,7 +23,9 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title' => 'string|max:255',
+            'category_id' => 'required',
             'excerpt' => 'string|max:255',
+            'content' => 'required',
         ];
     }
 }

@@ -69,10 +69,13 @@
 
                                             <option value="">--Select Category--</option>
                                             @foreach ($data['categories'] as $category)
-                                                <option value="{{ $category->id }}"
-                                                    {{ $data['post']->category->id == $category->id ? 'selected' : '' }}>
-                                                    {{ $category->title }}</option>
+                                                @if ($data['post']->category_id == $category->id)
+                                                    <option value="{{ $category->id }}" selected>{{ $category->title }}
+                                                    </option>
+                                                @endif
+                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                                             @endforeach
+
                                         </select>
                                     </div>
                                 </div>
