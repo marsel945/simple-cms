@@ -76,13 +76,23 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                         <!-- Card -->
                         <div class="card mb-4 shadow-lg">
-                            <a href="blog-single.html" class="card-img-top">
+                            <a href="blog-single.html" class="card-img-top ">
                                 <!-- Img  -->
-                                <img src="{{ asset('assets/images/blog/blogpost-1.jpg') }}"
-                                    class="card-img-top rounded-top-md" alt="blogpost"></a>
+
+                                @isset($post->cover)
+                                    <img src="{{ asset('storage/images/' . $post->cover) }}"
+                                        class="card-img-top rounded-top-md img-fluid" alt="blogpost" style="max-height: 200px">
+                                @endisset
+
+                                @empty($post->cover)
+                                    <img src="{{ asset('assets/images/blog/blogpost-1.jpg') }}"
+                                        class="card-img-top rounded-top-md img-fluid" alt="blogpost">
+                                @endempty
+                            </a>
                             <!-- Card body -->
                             <div class="card-body">
-                                <a href="#" class="fs-5 mb-2 fw-semibold d-block text-success">Courses</a>
+                                <a href="#"
+                                    class="fs-5 mb-2 fw-semibold d-block text-success">{{ $post->category->title }}</a>
                                 <h3><a href="blog-single.html" class="text-inherit">
                                         {{ $post->title }}
                                     </a>

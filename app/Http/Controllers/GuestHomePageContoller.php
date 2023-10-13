@@ -13,6 +13,12 @@ class GuestHomePageContoller extends Controller
     public function __invoke(Request $request)
     {
         $data['posts'] = Post::all();
+
+        foreach ($data['posts'] as $post) {
+            if ($post->attachment->count() > 0) {
+                $post->cover = $post->attachment->first()->path . '/' . $post->attachment->first()->file;
+            }
+        }
         return view('guest.welcome', compact('data'));
     }
 }
