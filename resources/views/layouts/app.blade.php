@@ -20,10 +20,9 @@
     <!-- Libs CSS -->
     <link href="{{ asset('assets/fonts/feather/feather.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/bootstrap-icons/font/bootstrap-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/libs/%40mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/libs/simplebar/dist/simplebar.min.css') }}" rel="stylesheet">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.4.55/css/materialdesignicons.min.css">
 
 
     <!-- Theme CSS -->
@@ -34,7 +33,7 @@
 
 <body>
     <!-- Wrapper -->
-    <main>
+    <main class="">
         <!-- navbar vertical -->
         @if (!Request::routeIs('login') && !Request::routeIs('register'))
             @include('layouts.partials.navbar')

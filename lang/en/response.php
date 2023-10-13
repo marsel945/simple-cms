@@ -3,9 +3,9 @@
 
 return [
     'success' => [
-        'store' => ':data was successfully added',
-        'update' => ':data was successfully updated',
-        'delete' => ':data was successfully deleted',
+        'store' => ':data  successfully added',
+        'update' => ':data  successfully updated',
+        'delete' => ':data  successfully deleted',
     ],
     'error' => [
         'store' => 'failed to add :data',

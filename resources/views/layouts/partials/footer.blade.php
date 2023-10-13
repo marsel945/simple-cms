@@ -9,7 +9,7 @@
                           <script>
                               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
                           </script>
-                      </span>Geeks. All Rights Reserved.</span>
+                      </span>Marselinus. All Rights Reserved.</span>
               </div>
               <!-- Links -->
               <div class="col-12 col-md-6">

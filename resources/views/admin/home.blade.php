@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+            <div class=" col-lg-6 col-md-12 col-12">
                 <!-- Card -->
                 <div class="card mb-4">
                     <!-- Card body -->
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12">
+            <div class=" col-lg-6 col-md-12 col-12">
                 <!-- Card -->
                 <div class="card mb-4">
                     <!-- Card body -->

@@ -35,8 +35,8 @@
                     <div class="card mb-4 shadow-lg">
                         <div class="row g-0">
                             <!-- Image -->
-                            <a href="blog-single.html" class="col-lg-8 col-md-12 col-12 bg-cover img-left-rounded"
-                                style="background-image: url({{ asset('assets/images/blog/blogpost-1.jpg') }});">
+                            <a href="" class="col-lg-8 col-md-12 col-12 bg-cover img-left-rounded"
+                                style="background-image: url({{ asset('assets/images/course/course-javascript.jpg') }});">
                                 <img src="{{ asset('assets/images/blog/blogpost-1.jpg') }}"
                                     class="img-fluid d-lg-none invisible" alt="blogpost"></a>
                             <div class="col-lg-4 col-md-12 col-12">
@@ -44,7 +44,7 @@
                                 <div class="card-body">
                                     <a href="#" class="fs-5 mb-3 fw-semibold d-block">Courses</a>
                                     <h1 class="mb-2 mb-lg-4"> <a href="blog-single.html" class="text-inherit">
-                                            Getting started the Web App JavaScript in 2020
+                                            Getting started the Web App JavaScript in 2023
                                         </a>
                                     </h1>
                                     <p>Our features, journey, tips and us being us. Lorem ipsum dolor sit amet,
@@ -54,12 +54,12 @@
                                     <div class="row align-items-center g-0 mt-lg-7 mt-4">
                                         <div class="col-auto">
                                             <!-- Img  -->
-                                            <img src="../assets/images/avatar/avatar-6.jpg" alt="avatar"
+                                            <img src="{{ asset('assets/images/avatar/ppp.jpg') }}" alt="avatar"
                                                 class="rounded-circle avatar-sm me-2">
                                         </div>
                                         <div class="col lh-1 ">
-                                            <h5 class="mb-1">Dustin Warren</h5>
-                                            <p class="fs-6 mb-0">September 13, 2020</p>
+                                            <h5 class="mb-1">Marselinus Harson Rewo</h5>
+                                            <p class="fs-6 mb-0">September 13, 2023</p>
                                         </div>
                                         <div class="col-auto">
 
@@ -76,7 +76,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                         <!-- Card -->
                         <div class="card mb-4 shadow-lg">
-                            <a href="blog-single.html" class="card-img-top ">
+                            <a href="{{ route('guest.post.single', $post->slug) }}" class="card-img-top ">
                                 <!-- Img  -->
 
                                 @isset($post->cover)
@@ -85,19 +85,19 @@
                                 @endisset
 
                                 @empty($post->cover)
-                                    <img src="{{ asset('assets/images/blog/blogpost-1.jpg') }}"
+                                    <img src="{{ asset('assets/images/course/course-react.jpg') }}"
                                         class="card-img-top rounded-top-md img-fluid" alt="blogpost">
                                 @endempty
                             </a>
                             <!-- Card body -->
                             <div class="card-body">
-                                <a href="#"
+                                <a href="{{ route('guest.post.single', $post->slug) }}"
                                     class="fs-5 mb-2 fw-semibold d-block text-success">{{ $post->category->title }}</a>
-                                <h3><a href="blog-single.html" class="text-inherit">
+                                <h3><a href="{{ route('guest.post.single', $post->slug) }}" class="text-inherit">
                                         {{ $post->title }}
                                     </a>
                                 </h3>
-                                {!! $post->content !!}
+                                {!! $post->excerpt !!}
                                 <!-- Media content -->
                                 <div class="row align-items-center g-0 mt-4">
                                     <div class="col-auto">

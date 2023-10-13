@@ -928,7 +928,8 @@
                     @endif
                 @endauth
 
-
+                <li class="nav-item"><a class="nav-link" href="{{ route('guest.home') }}" ">Home</a></li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarBrowse" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" data-bs-display="static">
@@ -1059,7 +1060,8 @@
 
                 <li class="nav-item mt-2 mb-2">
                     <a
-                        class="btn btn-outline-primary shadow-sm me-1 d-md-none d-block"href="{{ route('login') }}">{{ __('Sign In') }}</a>
+                        class="btn btn-outline-primary shadow-sm me-1 d-md-none d-block"href="
+                        {{ route('login') }}">{{ __('Sign In') }}</a>
 
                 </li>
                 <li class="nav-item mb-2">
