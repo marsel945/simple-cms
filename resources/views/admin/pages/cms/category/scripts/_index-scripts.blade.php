@@ -12,15 +12,6 @@
                 }
             },
             columns: [{
-                    name: "check",
-                    data: "check",
-                    orderable: false,
-                    searchable: false,
-                    render: function(d) {
-                        return d == null ? "Tidak Ada" : d;
-                    },
-                },
-                {
                     name: "title",
                     data: "title",
                     orderable: true,
@@ -83,46 +74,4 @@
             columnDefs: [],
         });
     });
-    $(".refresh").click(function() {
-        table.DataTable().ajax.reload();
-    });
-
-    const editKonfigurasi = (button) => {
-        let url_edit = $(button).data("url_edit");
-        let url_update = $(button).data("url_update");
-        $.ajax({
-            url: url_edit,
-            type: "GET",
-            dataType: "json",
-            success: (response) => {
-                if (response.success) {
-                    const modal = $("#editConfig");
-                    const form = modal.find("form");
-                    const select = $("#basicSelect");
-                    form.attr("action", url_update);
-                    form.find("textarea[name=value]").val(response.data.value);
-                    form.find("textarea[name=description]").val(
-                        response.data.description
-                    );
-                    form.find("input[name=key]").val(response.data.key);
-                    form.find(
-                        `select[name="status"] option[value="${response.data.status}"]`
-                    ).attr("selected", true);
-
-                    modal.on("show.bs.modal", (event) => {
-                        const targetValue = $("#field-value");
-                        const targetDescription = $("#field-description");
-                        if (targetValue.length) {
-                            CKEDITOR.replace("field-value");
-                        }
-
-                        if (targetDescription.length) {
-                            CKEDITOR.replace("field-description");
-                        }
-                    });
-                    modal.modal("show");
-                }
-            },
-        });
-    };
 </script>

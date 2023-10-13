@@ -31,13 +31,6 @@ class CategoryController extends Controller
         $query = Category::query()->get();
 
         return DataTables::of($query)
-            ->addColumn('check', function ($item) {
-                $element = '<div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="categoryCheck1">
-                            <label class="form-check-label" for="categoryCheck1"></label>
-                            </div>';
-                return $element;
-            })
             ->addColumn('title', fn ($item) => $item->title)
             ->addColumn('slug', fn ($item) => $item->slug)
             ->addColumn('posts', fn ($item) => $item->post->count())
@@ -73,7 +66,7 @@ class CategoryController extends Controller
             </span>';
                 return $element;
             })
-            ->rawColumns(['check', 'action', 'status'])
+            ->rawColumns(['action', 'status'])
             ->make(true);
     }
 
