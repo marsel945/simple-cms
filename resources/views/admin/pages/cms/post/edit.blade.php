@@ -133,11 +133,11 @@
                         </li>
                         <li class="list-group-item">
                             <span class="text-body">Created at</span>
-                            <h5>{{ $data['post']['created_at_parse'] }}</h5>
+                            <h5>{{ date('d M Y H:i', strtotime($data['post']->created_at)) }}</h5>
                         </li>
                         <li class="list-group-item">
                             <span class="text-body">Updated at</span>
-                            <h5>{{ $data['post']['updated_at_parse'] }}</h5>
+                            <h5>{{ date('d M Y H:i', strtotime($data['post']->updated_at)) }}</h5>
                         </li>
                     </ul>
                 </div>

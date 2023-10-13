@@ -190,8 +190,6 @@ class PostController extends Controller
 
         $data['categories'] = Category::all();
         $data['post'] = $find_post;
-        $data['post']['created_at_parse'] = FormatDate::getDateTimeCutMonth($data['post']->created_at);
-        $data['post']['updated_at_parse'] = FormatDate::getDateTimeCutMonth($data['post']->updated_at);
         return view('admin.pages.cms.post.edit', compact('data'));
     }
 
