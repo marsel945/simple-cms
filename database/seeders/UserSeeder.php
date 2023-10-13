@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 'A',
                 'role_id' => 1,
-                'name' => 'Super Admin 1',
+                'name' => 'Administrator',
                 'email' => 'super.admin' . '@gmail.com',
                 'password' => Hash::make('password'),
                 'created_at' => $now,
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 'B',
                 'role_id' => 2,
-                'name' => 'Guest 1',
+                'name' => 'Marselinus Harson Rewo',
                 'email' => 'marselinus.system' . '@gmail.com',
                 'password' => Hash::make('password'),
                 'created_at' => $now,
