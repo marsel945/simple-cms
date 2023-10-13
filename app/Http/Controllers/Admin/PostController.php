@@ -37,14 +37,8 @@ class PostController extends Controller
         $query = Post::query()->orderBy('updated_at');
 
         return DataTables::of($query)
-            ->addColumn('check', function ($item) {
-                $element = '<div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="categoryCheck1">
-                                <label class="form-check-label" for="categoryCheck1"></label>
-                            </div>';
-                return $element;
-            })
-            ->addColumn('title', fn ($item) => substr($item->title, 0, 10) . '....')
+
+            ->addColumn('title', fn ($item) => $item->title)
             ->addColumn('category', fn ($item) => $item->category->title)
             ->addColumn('date', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
             ->addColumn('author', function ($item) {
@@ -77,13 +71,9 @@ class PostController extends Controller
                 $element .= '<i class="fe fe-more-vertical"></i>';
                 $element .= '</a>';
                 $element .= '<span class="dropdown-menu" aria-labelledby="courseDropdown1">';
-                $element .= '<span class="dropdown-header">Settings</span>';
+                $element .= '<span class="dropdown-header">Actions</span>';
                 $element .= '<a class="dropdown-item" href="' . route('admin.cms.post.edit', $item->slug) . '"><i class="fe fe-edit dropdown-item-icon"></i>Edit</a>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-move dropdown-item-icon"></i>Move</a>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-copy dropdown-item-icon"></i>Copy</a>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-toggle-left dropdown-item-icon"></i>Publish</a>';
-                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish</a>';
-
+                $element .= '<a class="dropdown-item" href="#"><i class="fe fe-move dropdown-item-icon"></i>Detail</a>';
                 $element .= '<form  id="delete-' . $item->id . '" action="' . route('admin.cms.post.destroy', $item->id) . '" method="POST">';
                 $element .= method_field('DELETE');
                 $element .= csrf_field();
@@ -93,7 +83,7 @@ class PostController extends Controller
 
                 return $element;
             })
-            ->rawColumns(['check', 'author', 'status', 'action'])
+            ->rawColumns(['author', 'status', 'action'])
             ->make(true);
     }
 

@@ -24,7 +24,7 @@
                         </nav>
                     </div>
                     <div>
-                        <a href="admin-cms-post-new.html" class="btn btn-primary">New Post</a>
+                        <a href="{{ route('admin.cms.posts.create') }}" class="btn btn-primary">New Post</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <span class="fs-6 text-uppercase fw-semibold">Total Posts</span>
                         <div class="mt-2 d-flex justify-content-between align-items-center">
                             <div class="lh-1">
-                                <h2 class="h1 fw-bold mb-1">2,000</h2>
+                                <h2 class="h1 fw-bold mb-1">{{ $data['total_post'] }}</h2>
                                 <span>100Last 30Days</span>
                             </div>
                             <div>
@@ -50,26 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-                <!-- Card -->
-                <div class="card mb-4">
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <span class="fs-6 text-uppercase fw-semibold">Assets</span>
-                        <div class="mt-2 d-flex justify-content-between align-items-center">
-                            <div class="lh-1">
-                                <h2 class="h1 fw-bold mb-1">367</h2>
-                                <span>300+ Media Object</span>
-                            </div>
-                            <div>
-                                <span class="bg-light-warning icon-shape icon-xl rounded-3 text-dark-warning">
-                                    <i class="mdi mdi-folder-multiple-image mdi-24px"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <div class="col-xl-3 col-lg-6 col-md-12 col-12">
                 <!-- Card -->
                 <div class="card mb-4">
@@ -78,7 +59,7 @@
                         <span class="fs-6 text-uppercase fw-semibold">USers</span>
                         <div class="mt-2 d-flex justify-content-between align-items-center">
                             <div class="lh-1">
-                                <h2 class="h1 fw-bold mb-1">13,234</h2>
+                                <h2 class="h1 fw-bold mb-1">{{ $data['total_user'] }}</h2>
                                 <span>1.5k in 30Days</span>
                             </div>
                             <div>
@@ -90,26 +71,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-6 col-md-12 col-12">
-                <!-- Card -->
-                <div class="card mb-4">
-                    <!-- Card Body -->
-                    <div class="card-body">
-                        <span class="fs-6 text-uppercase fw-semibold">Comments</span>
-                        <div class="mt-2 d-flex justify-content-between align-items-center">
-                            <div class="lh-1">
-                                <h2 class="h1 fw-bold mb-1">120</h2>
-                                <span>20+ Comments</span>
-                            </div>
-                            <div>
-                                <span class="bg-light-info icon-shape icon-xl rounded-3 text-dark-info">
-                                    <i class="mdi mdi-comment-text mdi-24px"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
@@ -119,21 +81,6 @@
                     <div
                         class="card-header d-flex justify-content-between align-items-center border-bottom-0 card-header-height">
                         <h4 class="mb-0">Recent Posts</h4>
-                        <span class="dropdown dropstart">
-                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button"
-                                id="courseDropdown1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <span class="dropdown-menu" aria-labelledby="courseDropdown1">
-                                <span class="dropdown-header">Settings</span>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fe fe-trash dropdown-item-icon"></i>Remove
-                                </a>
-                            </span>
-                        </span>
                     </div>
                     <!-- Table -->
                     <div class="table-responsive border-0 overflow-y-hidden">
@@ -141,473 +88,69 @@
                             <thead class="table-light">
                                 <tr>
                                     <th scope="col">POST</th>
-                                    <th scope="col">TYPE</th>
                                     <th scope="col">CATEGORY</th>
-                                    <th scope="col">DATE</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">STATUS</th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                Revolutionize how you build the web...
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-image text-primary fs-4"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Courses</a>
-                                    </td>
-                                    <td>
-                                        7 July, 2021 1:42pm
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-7.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">Reva Yokk</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-warning me-1 d-inline-block align-middle"></span>
-                                        Draft
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown2" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown2">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
+
+                                @foreach ($data['posts'] as $post)
+                                    <tr>
+                                        <td>
+                                            <h5 class="mb-0">
+                                                <a href="#" class="text-inherit">
+                                                    {{ $post->title }}
                                                 </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-inherit">{{ $post->category->title }}</a>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="../../assets/images/avatar/avatar-7.jpg" alt=""
+                                                    class="rounded-circle avatar-xs me-2">
+                                                <h5 class="mb-0">{{ $post->author->name }}</h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge-dot bg-warning me-1 d-inline-block align-middle"></span>
+                                            Draft
+                                        </td>
+                                        <td>
+                                            <span class="dropdown dropstart">
+                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
+                                                    role="button" id="courseDropdown2" data-bs-toggle="dropdown"
+                                                    data-bs-offset="-20,20" aria-expanded="false">
+                                                    <i class="fe fe-more-vertical"></i>
                                                 </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
+                                                <span class="dropdown-menu" aria-labelledby="courseDropdown2">
+                                                    <span class="dropdown-header">Settings</span>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-edit dropdown-item-icon"></i>Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-move dropdown-item-icon"></i>Move
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-copy dropdown-item-icon"></i>Copy
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fe fe-trash dropdown-item-icon"></i>Delete
+                                                    </a>
+                                                </span>
                                             </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                Guide to Static Sites with Gatsby.js
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-video fs-4 text-primary"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Marketing</a>
-                                    </td>
-                                    <td>6 July, 2021 2:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-5.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">March Menon</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-warning me-1 d-inline-block align-middle"></span>
-                                        Draft
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown3" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown3">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                The Modern JavaScript Courses
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-link fs-4 text-primary"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Workshop</a>
-                                    </td>
-                                    <td>5 July, 2021 5:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-4.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">Lisa Menon</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-success me-1 d-inline-block align-middle"></span>
-                                        Published
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown4" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown4">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                Online WordPress Courses Become ..
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-image text-primary fs-4"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Company</a>
-                                    </td>
-                                    <td>3 July, 2021 10:42am</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-8.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">Maria Pinto</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-success me-1 d-inline-block align-middle"></span>
-                                        Published
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown5" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown5">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                How to become Java Developer
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-image text-primary fs-4"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Company</a>
-                                    </td>
-                                    <td>4 July, 2021 12:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-10.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">John Deo</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-success me-1 d-inline-block align-middle"></span>
-                                        Published
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown6" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown6">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                The Javascript Learning
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-video fs-4 text-primary"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Marketing</a>
-                                    </td>
-                                    <td>3 July, 2021 12:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-15.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">Misty Smaln</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-info me-1 d-inline-block align-middle"></span>
-                                        Schedule
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown7" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown7">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                How to become modern Stack Developer
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-image fs-4 text-primary"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Company</a>
-                                    </td>
-                                    <td>3 July, 2021 12:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-12.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">March Liso</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-success me-1 d-inline-block align-middle"></span>
-                                        Published
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown8" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown8">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 class="mb-0">
-                                            <a href="#" class="text-inherit">
-                                                How to become Full Stack Developer
-                                            </a>
-                                        </h5>
-                                    </td>
-                                    <td>
-                                        <i class="fe fe-link fs-4 text-primary"></i>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-inherit">Workshop</a>
-                                    </td>
-                                    <td>2 July, 2021 12:42pm</td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="../../assets/images/avatar/avatar-2.jpg" alt=""
-                                                class="rounded-circle avatar-xs me-2">
-                                            <h5 class="mb-0">Sina Ray</h5>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge-dot bg-danger me-1 d-inline-block align-middle"></span>
-                                        Deleted
-                                    </td>
-                                    <td>
-                                        <span class="dropdown dropstart">
-                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                role="button" id="courseDropdown9" data-bs-toggle="dropdown"
-                                                data-bs-offset="-20,20" aria-expanded="false">
-                                                <i class="fe fe-more-vertical"></i>
-                                            </a>
-                                            <span class="dropdown-menu" aria-labelledby="courseDropdown9">
-                                                <span class="dropdown-header">Settings</span>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-edit dropdown-item-icon"></i>Edit
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-move dropdown-item-icon"></i>Move
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-copy dropdown-item-icon"></i>Copy
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-left dropdown-item-icon"></i>Publish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-toggle-right dropdown-item-icon"></i>Unpublish
-                                                </a>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fe fe-trash dropdown-item-icon"></i>Delete
-                                                </a>
-                                            </span>
-                                        </span>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

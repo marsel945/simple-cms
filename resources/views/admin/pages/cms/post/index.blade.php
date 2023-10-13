@@ -77,19 +77,12 @@
                                 <div class="table-responsive">
                                     <!-- Table -->
                                     <table
-                                        class="table mb-0 text-nowrap table-centered table-hover table-with-checkbox table-centered table-hover"
+                                        class="table mb-0 text-nowrap table-centered table-hover  table-centered table-hover"
                                         id="dataTablePosts" style="width: 100%">
                                         <!-- Table Head -->
                                         <thead class="table-light">
                                             <tr>
-                                                <th scope="col">
-                                                    <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" id="checkAll" />
-                                                        <label class="form-check-label" for="checkAll"></label>
-                                                    </div>
-                                                </th>
                                                 <th scope="col">POST</th>
-                                                {{-- <th scope="col">TYPE</th> --}}
                                                 <th scope="col">CATEGORY</th>
                                                 <th scope="col">DATE</th>
                                                 <th scope="col">Author</th>

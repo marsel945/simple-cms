@@ -12,15 +12,6 @@
                 }
             },
             columns: [{
-                    name: "check",
-                    data: "check",
-                    orderable: false,
-                    searchable: false,
-                    render: function(d) {
-                        return d == null ? "Tidak Ada" : d;
-                    },
-                },
-                {
                     name: "title",
                     data: "title",
                     render: function(d) {
