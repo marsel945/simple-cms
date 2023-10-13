@@ -48,6 +48,7 @@ Route::middleware('auth', 'isAdmin')->group(function () {
             Route::delete('/delete/attachment', [PostController::class, 'deleteAttachmentFile'])->name('admin.cms.post.delete.attachment');
             Route::get('/edit/{slug}', [PostController::class, 'edit'])->name('admin.cms.post.edit');
             Route::patch('/update/{slug}', [PostController::class, 'update'])->name('admin.cms.post.update');
+            Route::delete('/delete/{id}', [PostController::class, 'destroy'])->name('admin.cms.post.destroy');
             Route::get('/create', [PostController::class, 'create'])->name('admin.cms.posts.create');
             Route::post('/store', [PostController::class, 'store'])->name('admin.cms.posts.store');
             Route::post('/datatable', [PostController::class, 'datatable'])->name('admin.cms.posts.datatable');

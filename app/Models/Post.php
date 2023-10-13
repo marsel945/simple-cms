@@ -33,7 +33,7 @@ class Post extends Model
 
     public function attachment()
     {
-        return $this->belongsToMany(PostAttachment::class, 'post_attachments', 'post_id');
+        return $this->hasMany(PostAttachment::class, 'post_id');
     }
 
     public function author()

@@ -165,7 +165,7 @@ class PostController extends Controller
                 PostAttachment::create([
                     'post_id' => $newPost->id,
                     'file' =>  $temporaryAttachmentFile->file,
-                    'path' => $temporaryAttachmentFile->folder . '/' . $temporaryAttachmentFile->file
+                    'path' => $temporaryAttachmentFile->folder
                 ]);
                 Storage::deleteDirectory('images/tmp/' . $temporaryAttachmentFile->folder);
                 $temporaryAttachmentFile->delete();
@@ -229,6 +229,15 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        return "delete";
+        $post = Post::where('id', $id)->firstOrFail();
+        $files = $post->attachment;
+
+        foreach ($files as $file) {
+            Storage::deleteDirectory('images/' . $file->path);
+            $file->delete();
+        }
+        $post->delete();
+
+        return redirect()->back()->with('success', trans('response.success.delete', ['data' => 'Post']));
     }
 }

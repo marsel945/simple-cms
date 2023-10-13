@@ -7,7 +7,7 @@
                 text: success,
                 icon: "success",
                 showConfirmButton: false,
-                timer: 1500,
+                timer: 2500,
                 toast: true
             });
         }
@@ -64,17 +64,17 @@
     const alertConfirm = (button) => {
         const id = $(button).data('id');
         swal.fire({
-            title: "Apakah Anda Yakin?",
-            text: "Data akan terhapus secara permanen!",
+            title: "Are You Sure?",
+            text: "The data will be permanently deleted!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonText: "Hapus Data",
+            confirmButtonText: "Delete",
             cancelButtonText: "Batal",
         }).then((result) => {
             if (result.isConfirmed) {
                 $('#delete-' + id).submit();
             } else {
-                swal.fire("Data Aman", "Data Yang Dipilih Batal Dihapus", "success");
+                swal.fire("Data is Secured", "Selected Data Cancel Deleted", "success");
             }
         });
     }
