@@ -42,8 +42,15 @@ class PostController extends Controller
         return DataTables::of($query)
 
             ->addColumn('title', fn ($item) => $item->title)
-            ->addColumn('category', fn ($item) => $item->category->title)
-            ->addColumn('date', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
+            ->addColumn('category',  function ($item) {
+                if ($item->category != null) {
+                    return $item->category->title;
+                } else {
+                    return 'Uncategorised';
+                }
+            })
+
+            ->addColumn('date', fn ($item) => date('d M Y', strtotime($item->created_at)))
             ->addColumn('author', function ($item) {
                 $author = $item->author->name;
                 $element = '';
@@ -86,7 +93,7 @@ class PostController extends Controller
 
                 return $element;
             })
-            ->rawColumns(['author', 'status', 'action'])
+            ->rawColumns(['author',  'status', 'action'])
             ->make(true);
     }
 

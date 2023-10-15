@@ -92,7 +92,7 @@
                             <!-- Card body -->
                             <div class="card-body">
                                 <a href="{{ route('guest.post.single', $post->slug) }}"
-                                    class="fs-5 mb-2 fw-semibold d-block text-success">{{ $post->category->title }}</a>
+                                    class="fs-5 mb-2 fw-semibold d-block text-success">{{ $post->category->title ?? "Uncategorized"}}</a>
                                 <h3><a href="{{ route('guest.post.single', $post->slug) }}" class="text-inherit">
                                         {{ $post->title }}
                                     </a>

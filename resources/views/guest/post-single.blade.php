@@ -7,7 +7,7 @@
                 <div class="col-xl-8 col-lg-8 col-md-12 col-12 mb-2">
                     <div class="text-center mb-4">
                         <a href="#"
-                            class="fs-5 fw-semibold d-block mb-4 text-primary">{{ $data['post']->category->title }}</a>
+                            class="fs-5 fw-semibold d-block mb-4 text-primary">{{ $data['post']->category->title ?? "Uncategorized"}}</a>
                         <h1 class="display-3 fw-bold mb-4">{{ $data['post']->title }}</h1>
                         <span class="mb-3 d-inline-block">4 min read</span>
                     </div>

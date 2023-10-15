@@ -58,6 +58,7 @@ Route::middleware('auth', 'isAdmin')->group(function () {
             Route::get('/', [CategoryController::class, 'index'])->name('admin.cms.category');
             Route::post('/datatable', [CategoryController::class, 'datatable'])->name('admin.cms.category.datatable');
             Route::post('/', [CategoryController::class, 'store'])->name('admin.cms.category.create');
+            Route::delete('/destroy{category}', [CategoryController::class, 'destroy'])->name('admin.cms.category.destroy');
         });
     });
 });

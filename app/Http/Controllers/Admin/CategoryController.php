@@ -30,13 +30,13 @@ class CategoryController extends Controller
      */
     public function datatable()
     {
-        $query = Category::query()->get();
+        $query = Category::query()->orderBy('updated_at');
 
         return DataTables::of($query)
             ->addColumn('title', fn ($item) => $item->title)
             ->addColumn('slug', fn ($item) => $item->slug)
             ->addColumn('posts', fn ($item) => $item->post->count())
-            ->addColumn('date_created', fn ($item) => FormatDate::getDateTimeCutMonth($item->created_at))
+            ->addColumn('date_created', fn ($item) => date('d M Y', strtotime($item->created_at)))
             ->addColumn('date_updated', fn ($item) => FormatDate::getDateTimeCutMonth($item->updated_at))
             ->addColumn('status', function ($item) {
                 $element = '';
@@ -61,11 +61,13 @@ class CategoryController extends Controller
                             class="fe fe-send dropdown-item-icon"></i>Publish</a>
                     <a class="dropdown-item" href="#"><i
                             class="fe fe-inbox dropdown-item-icon"></i>Moved
-                        Draft</a>
-                    <a class="dropdown-item" href="#"><i
-                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                </span>
-            </span>';
+                        Draft</a>';
+                $element .= '<form  id="delete-' . $item->id . '" action="' . route('admin.cms.category.destroy', $item->id) . '" method="POST">';
+                $element .= method_field('DELETE');
+                $element .= csrf_field();
+                $element .= '<button class="dropdown-item" type="button"  data-id ="' . $item->id . '" data-url_delete="' . route('admin.cms.category.destroy', $item->id) . '" onclick="alertConfirm(this)" data-id="' . $item->id . '"><i class="fe fe-trash dropdown-item-icon"></i>Delete</button>';
+                $element .= '</form>';
+                $element .= '</span></span>';
                 return $element;
             })
             ->rawColumns(['action', 'status'])
@@ -97,7 +99,7 @@ class CategoryController extends Controller
 
             $category->save();
             DB::commit();
-            return redirect()->back()->with('success', "Sukses Menyimpan Data");
+            return redirect()->back()->with('success', trans('response.success.store', ['data' => 'Category']));
         } catch (Throwable $th) {
             DB::rollBack();
             dd($th->getMessage());
@@ -134,6 +136,17 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $find_category = Category::find($category)->firstOrFail();
+
+            $find_category->delete();
+            DB::commit();
+
+            return redirect()->back()->with('succes', trans('response.success.delete', ['data' => 'Category']));
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->with('error', trans('response.error.delete', ['data' => $th->getMessage()]));
+        }
     }
 }

@@ -24,7 +24,7 @@
                     name: "slug",
                     data: "slug",
                     orderable: true,
-                    searchable: true
+                    searchable: true,
                     render: function(d) {
                         return d == null ? "Tidak Ada" : d;
                     },
@@ -62,7 +62,7 @@
                     },
                 },
                 {
-                    name: "",
+                    name: "action",
                     data: "action",
                     orderable: false,
                     searchable: false,

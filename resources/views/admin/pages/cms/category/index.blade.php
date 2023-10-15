@@ -8,6 +8,16 @@
     <link href="{{ asset('assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet">
 @endpush
+
+
+@push('customJsQuery')
+    <script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+
+    @include('admin.pages.cms.category.scripts._index-scripts');
+@endpush
+
 @section('content')
     <section class="container-fluid p-4">
         <div class="row">
@@ -54,7 +64,7 @@
                     <!-- Table -->
                     <div class="table-responsive">
                         <table class="table mb-0 text-nowrap table-centered table-hover table-centered"
-                            id="dataTableCategories" style="width: 100%;">
+                            id="dataTableCategories" style="width: 100%">
                             <thead class="table-light">
                                 <tr>
                                     <th>TITLE</th>
@@ -67,45 +77,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data['categories'] as $category)
-                                    <tr>
-                                        <td>
-                                            <a href="#" class="text-inherit">
-                                                <h5 class="mb-0 text-primary-hover">{{ $category->title }}</h5>
-                                            </a>
-                                        </td>
-                                        <td>{{ $category->slug }}</td>
-                                        <td>{{ $category->post->count() }}</td>
-                                        <td>{{ date('d M Y H:i:s', strtotime($category->created_at)) }}</td>
-                                        <td>{{ date('d M Y H:i:s', strtotime($category->updated_at)) }}</td>
-                                        <td>
-                                            @if ($category->status == 'draft')
-                                                <span class="badge bg-warning">Draft</span>
-                                            @else
-                                                <span class="badge bg-success">Live</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <span class="dropdown dropstart">
-                                                <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#"
-                                                    role="button" id="courseDropdown3" data-bs-toggle="dropdown"
-                                                    data-bs-offset="-20,20" aria-expanded="false">
-                                                    <i class="fe fe-more-vertical"></i>
-                                                </a>
-                                                <span class="dropdown-menu" aria-labelledby="courseDropdown3">
-                                                    <span class="dropdown-header">Action</span>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-send dropdown-item-icon"></i>Publish</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-inbox dropdown-item-icon"></i>Moved
-                                                        Draft</a>
-                                                    <a class="dropdown-item" href="#"><i
-                                                            class="fe fe-trash dropdown-item-icon"></i>Delete</a>
-                                                </span>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -116,13 +87,7 @@
 @endsection
 
 
-@push('customJsQuery')
-    <script src="{{ asset('assets/libs/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
 
-    @include('admin.pages.cms.category.scripts._index-scripts');
-@endpush
 
 @section('modal')
     @include('admin.pages.cms.category.modals.add')

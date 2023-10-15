@@ -106,7 +106,7 @@
                                             </h5>
                                         </td>
                                         <td>
-                                            <a href="#" class="text-inherit">{{ $post->category->title }}</a>
+                                            <a href="#" class="text-inherit">{{ $post->category->title ?? "Uncategorized" }}</a>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">
