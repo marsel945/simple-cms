@@ -4,6 +4,12 @@
         table.DataTable({
             processing: true,
             serverSide: true,
+            language:{
+            paginate:{
+                    previous: '<i class="mdi mdi-chevron-left"></i>',
+                    next : '<i class="mdi mdi-chevron-right"></i>'
+                }
+            },
             ajax: {
                 url: "{{ route('admin.cms.category.datatable') }}",
                 'type': "POST",
