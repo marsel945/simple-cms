@@ -106,7 +106,7 @@ php artisan serve
 
 Open [http://localhost:8000](http://localhost:8000) from your browser.
 To access the admin panel, hit the link [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
-from your browser. The application comes with default user with email address `super.admin@admin.com` and `password`.
+from your browser. The application comes with default user as admin with email address `super.admin@gmail.com` and `password` and guest with email address `marselinus.system@gmail.com` and `password`.
 
 <a name="item4"></a>
 
