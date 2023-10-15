@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\PostSingleController;
+use App\Http\Controllers\GuestHomePageContoller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdminHomeController;
-use App\Http\Controllers\GuestHomePageContoller;
-use App\Http\Controllers\PostSingleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,9 @@ use App\Http\Controllers\PostSingleController;
 */
 
 // Guest Routes
-Route::get('/', GuestHomePageContoller::class)->name('guest.home');
+Route::get('/', [HomeController::class, 'index'])->name('guest.home');
 Route::get('/post/{slug}', PostSingleController::class)->name('guest.post.single');
 
-Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -38,7 +38,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home')->middleware('auth');
 
 
-
+// Admin ROute
+Route::get('/dashboard', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->middleware(['auth', 'verified', 'isAdmin'])->name('dashboard');
 Route::middleware('auth', 'isAdmin')->group(function () {
     Route::prefix('cms')->group(function () {
         Route::get('/', [AdminHomeController::class, 'renderCmsOverview'])->name('admin.cms.overview');

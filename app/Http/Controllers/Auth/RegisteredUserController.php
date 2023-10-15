@@ -21,7 +21,6 @@ class RegisteredUserController extends Controller
     public function create(): View
     {
         $data['title'] = "Register";
-        dd($data);
         return view('auth.register', compact('data'));
     }
 

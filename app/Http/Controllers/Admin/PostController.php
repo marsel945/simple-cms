@@ -25,7 +25,8 @@ class PostController extends Controller
     public function index(): View
     {
         $data['title'] = 'All Post';
-        return view('admin.pages.cms.post.index');
+
+        return view('admin.pages.cms.post.index', compact('data'));
     }
 
     /**
@@ -192,6 +193,7 @@ class PostController extends Controller
 
         $data['categories'] = Category::all();
         $data['post'] = $find_post;
+        $data['title'] = 'Edit Post';
         return view('admin.pages.cms.post.edit', compact('data'));
     }
 
