@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
         $now = now();
         DB::table('posts')->insert([
             [
-                'id' => 'poiuytrewertyuioiuytre',
+                'id' => 'm',
                 'user_id' => 'A',
                 'category_id' => 1,
                 'title' => "Beginner Bootstrap 5 Training",
@@ -28,7 +28,7 @@ class PostSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'id' => 'mnjuyhbn|vgftrfdcvv',
+                'id' => 'n',
                 'user_id' => 'A',
                 'category_id' => 2,
                 'title' => "Beginner Figma  Training",
@@ -40,7 +40,7 @@ class PostSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'id' => 'mnjuyhbn|vgftrfdcvvBBBAA',
+                'id' => 'o',
                 'user_id' => 'A',
                 'category_id' => 1,
                 'title' => "Advance React Course",
