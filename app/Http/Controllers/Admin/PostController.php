@@ -14,6 +14,7 @@ use App\Models\PostAttachment;
 use App\Models\TemporaryPostAttachment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends Controller
@@ -21,8 +22,9 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
+        $data['title'] = 'All Post';
         return view('admin.pages.cms.post.index');
     }
 

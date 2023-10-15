@@ -37,9 +37,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\Admin\AdminHomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/admin/home', [AdminHomeController::class, 'index']);
-});
+
 
 Route::middleware('auth', 'isAdmin')->group(function () {
     Route::prefix('cms')->group(function () {

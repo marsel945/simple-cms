@@ -72,8 +72,9 @@
                                                 @if ($data['post']->category_id == $category->id)
                                                     <option value="{{ $category->id }}" selected>{{ $category->title }}
                                                     </option>
+                                                @else
+                                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
                                                 @endif
-                                                <option value="{{ $category->id }}">{{ $category->title }}</option>
                                             @endforeach
 
                                         </select>

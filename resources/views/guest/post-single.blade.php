@@ -6,8 +6,9 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-8 col-md-12 col-12 mb-2">
                     <div class="text-center mb-4">
-                        <a href="#" class="fs-5 fw-semibold d-block mb-4 text-primary">{{ $post->category->title }}</a>
-                        <h1 class="display-3 fw-bold mb-4">{{ $post->title }}</h1>
+                        <a href="#"
+                            class="fs-5 fw-semibold d-block mb-4 text-primary">{{ $data['post']->category->title }}</a>
+                        <h1 class="display-3 fw-bold mb-4">{{ $data['post']->title }}</h1>
                         <span class="mb-3 d-inline-block">4 min read</span>
                     </div>
                     <!-- Media -->
@@ -16,7 +17,7 @@
                             <img src="{{ asset('assets/images/avatar/ppp.jpg') }}" alt="avatar"
                                 class="rounded-circle avatar-md">
                             <div class="ms-2 lh-1">
-                                <h5 class="mb-1 ">{{ $post->author->name }}</h5>
+                                <h5 class="mb-1 ">{{ $data['post']->author->name }}</h5>
                                 <span class="text-primary">Marketing Manager</span>
                             </div>
                         </div>
@@ -33,8 +34,8 @@
                 <!-- Image -->
                 <div class="col-xl-10 col-lg-10 col-md-12 col-12 mb-6">
 
-                    @if ($post->attachment->count() > 0)
-                        <img src="{{ asset('storage/images/' . $post->attachment->first()->path . '/' . $post->attachment->first()->file) }}"
+                    @if ($data['post']->attachment->count() > 0)
+                        <img src="{{ asset('storage/images/' . $data['post']->attachment->first()->path . '/' . $data['post']->attachment->first()->file) }}"
                             alt="blogpost" class="img-fluid rounded-3 w-100">
                     @else
                         <img src="{{ asset('assets/images/blog/blogpost-1.jpg') }}" class="img-fluid  rounded-3 w-100"
@@ -49,9 +50,9 @@
                         <hr class="mt-lg-10 mb-lg-6 my-md-6">
                         <blockquote class="blockquote text-center ">
                             <p class="text-primary font-italic fw-semibold lh-lg h1 px-2 px-lg-14">
-                                "{{ $post->excerpt }}"</p>
+                                "{{ $data['post']->excerpt }}"</p>
                             <footer class="blockquote-footer mt-3 text-muted">
-                                <cite title="Source Title">{{ $post->author->name }}</cite>
+                                <cite title="Source Title">{{ $data['post']->author->name }}</cite>
                             </footer>
                         </blockquote>
                         <hr class="mt-lg-6 mb-lg-10 my-md-6">
@@ -63,7 +64,7 @@
                     <!-- List unstyled -->
 
                     <div class="overflow-x-hidden">
-                        {!! $post->content !!}
+                        {!! $data['post']->content !!}
                     </div>
 
 
@@ -75,7 +76,7 @@
                     <div class="d-flex align-items-center">
                         <img src="../assets/images/avatar/avatar-4.jpg" alt="avatar" class="rounded-circle avatar-md">
                         <div class="ms-2 lh-1">
-                            <h5 class="mb-1 ">{{ $post->author->name }}</h5>
+                            <h5 class="mb-1 ">{{ $data['post']->author->name }}</h5>
                             <span class="text-primary">Marketing Manager</span>
                         </div>
                     </div>
@@ -136,7 +137,7 @@
                                         class="rounded-circle avatar-sm me-2">
                                 </div>
                                 <div class="col lh-1">
-                                    <h5 class="mb-1">{{ $post->author->name }}</h5>
+                                    <h5 class="mb-1">{{ $data['post']->author->name }}</h5>
                                     <p class="fs-6 mb-0">October 09, 2023</p>
                                 </div>
                                 <div class="col-auto">
@@ -166,7 +167,7 @@
                                         class="rounded-circle avatar-sm me-2">
                                 </div>
                                 <div class="col lh-1">
-                                    <h5 class="mb-1">{{ $post->author->name }}</h5>
+                                    <h5 class="mb-1">{{ $data['post']->author->name }}</h5>
                                     <p class="fs-6 mb-0">October 10, 2023</p>
                                 </div>
                                 <div class="col-auto">
@@ -197,7 +198,7 @@
                                         class="rounded-circle avatar-sm me-2">
                                 </div>
                                 <div class="col lh-1">
-                                    <h5 class="mb-1">{{ $post->author->name }}</h5>
+                                    <h5 class="mb-1">{{ $data['post']->author->name }}</h5>
                                     <p class="fs-6 mb-0">October 11, 2023</p>
                                 </div>
                                 <div class="col-auto">

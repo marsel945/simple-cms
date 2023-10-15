@@ -11,7 +11,8 @@ class AdminHomeController extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        $data['title'] = 'Dashboard';
+        return view('admin.home', compact('data'));
     }
 
     public function renderCmsOverview()
@@ -19,6 +20,7 @@ class AdminHomeController extends Controller
         $data['posts'] = Post::all();
         $data['total_post'] = $data['posts']->count();
         $data['total_user'] = User::all()->count();
+        $data['title'] = 'Post Overview';
 
         return view('admin.pages.cms.index', compact('data'));
     }

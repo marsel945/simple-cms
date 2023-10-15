@@ -10,15 +10,17 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\CreateCategoryRequest;
+use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $data['categories'] = Category::all();
+        $data['title'] = 'Post Categories';
         return view('admin.pages.cms.category.index', compact('data'));
     }
 

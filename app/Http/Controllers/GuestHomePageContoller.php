@@ -13,6 +13,7 @@ class GuestHomePageContoller extends Controller
     public function __invoke(Request $request)
     {
         $data['posts'] = Post::all();
+        $data['title'] = 'Home';
 
         foreach ($data['posts'] as $post) {
             if ($post->attachment->count() > 0) {

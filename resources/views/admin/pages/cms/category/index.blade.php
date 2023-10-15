@@ -76,8 +76,8 @@
                                         </td>
                                         <td>{{ $category->slug }}</td>
                                         <td>{{ $category->post->count() }}</td>
-                                        <td>{{ $category->created_at }}</td>
-                                        <td>{{ $category->updated_at }}</td>
+                                        <td>{{ date('d M Y H:i:s', strtotime($category->created_at)) }}</td>
+                                        <td>{{ date('d M Y H:i:s', strtotime($category->updated_at)) }}</td>
                                         <td>
                                             @if ($category->status == 'draft')
                                                 <span class="badge bg-warning">Draft</span>

@@ -28,7 +28,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
     <link rel="canonical" href="layout-horizontal.html">
-    <title>Navbar Horizontal | Geeks - Bootstrap 5 Admin Dashboard Template</title>
+    <title>{{ env('APP_NAME') . ' | ' . $data['title'] }}</title>
 </head>
 
 <body>
@@ -58,9 +58,6 @@
 
     <!-- Theme JS -->
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
-
-    <script src="{{ asset('assets/libs/flatpickr/dist/flatpickr.min.js') }}"></script>
-    <script src="{{ asset('assets/js/vendors/flatpickr.js') }}"></script>
 
     <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendors/chart.js') }}"></script>

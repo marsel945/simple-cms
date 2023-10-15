@@ -33,9 +33,8 @@
 
 
     @stack('customCss')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
-                                            "></script>
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+    <title>{{ env('APP_NAME') . ' | ' . $data['title'] }}</title>
 </head>
 
 <body>

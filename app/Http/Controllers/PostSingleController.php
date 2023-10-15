@@ -14,7 +14,8 @@ class PostSingleController extends Controller
     {
         $post = new Post();
         $post = $post->query()->where('slug', '=', $slug)->firstOrFail();
-
-        return view('guest.post-single', compact('post'));
+        $data['title'] = $post->title;
+        $data['post'] = $post;
+        return view('guest.post-single', compact('data'));
     }
 }
