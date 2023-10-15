@@ -28,7 +28,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
     <link rel="canonical" href="layout-horizontal.html">
-    <title>{{ env('APP_NAME') . ' | ' . $data['title']?? '' }}</title>
+    <title>{{ env('APP_NAME') . ' | ' . $data['title']??= '' }}</title>
 </head>
 
 <body>

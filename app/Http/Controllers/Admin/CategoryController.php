@@ -143,7 +143,7 @@ class CategoryController extends Controller
             $find_category->delete();
             DB::commit();
 
-            return redirect()->back()->with('succes', trans('response.success.delete', ['data' => 'Category']));
+            return redirect()->back()->with('success', trans('response.success.delete', ['data' => 'Category']));
         } catch (\Throwable $th) {
             DB::rollBack();
             return redirect()->back()->with('error', trans('response.error.delete', ['data' => $th->getMessage()]));
