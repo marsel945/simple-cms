@@ -84,11 +84,12 @@
             </div>
         </div>
     </section>
-@endsection
-
-
-
-
-@section('modal')
     @include('admin.pages.cms.category.modals.add')
+    @endsection
+    
+    
+    
+    
+@section('modal')
+    @include('admin.pages.cms.category.modals.edit')
 @endsection

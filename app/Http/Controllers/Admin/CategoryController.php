@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\FormatDate;
 use Throwable;
+use App\Helpers\Json;
 use App\Models\Category;
+use Illuminate\View\View;
+use App\Helpers\FormatDate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\CreateCategoryRequest;
-use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 class CategoryController extends Controller
 {
@@ -62,6 +64,7 @@ class CategoryController extends Controller
                     <a class="dropdown-item" href="#"><i
                             class="fe fe-inbox dropdown-item-icon"></i>Moved
                         Draft</a>';
+                $element .= '<button class="dropdown-item" data-id ="' . $item->id . '" onclick="editCategory(this)" data-url_edit = "' . route('admin.cms.category.edit', $item->id) . '" data-url_update="' . route('admin.cms.category.update', $item->id) . '" ><i class="fe fe-edit dropdown-item-icon"></i>Edit</button>';
                 $element .= '<form  id="delete-' . $item->id . '" action="' . route('admin.cms.category.destroy', $item->id) . '" method="POST">';
                 $element .= method_field('DELETE');
                 $element .= csrf_field();
@@ -118,17 +121,37 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(string $id): JsonResponse
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $data = Category::findOrFail($id);
+            return Json::success($data);
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return Json::error($th->getMessage());
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(CreateCategoryRequest $request, string $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $data = Category::findOrFail($id);
+            $data->update($request->validated());
+            DB::commit();
+
+            return redirect()->back()->with('success', trans('response.success.update', ['data' => 'Category']));
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->with('error', trans('response.error.update', ['data' => $th->getMessage()]));
+        }
     }
 
     /**

@@ -5,7 +5,9 @@
             processing: true,
             serverSide: true,
             language:{
-            paginate:{
+                paginate:{
+                    first: '<i class="mdi-chevron-double-left"></i>',
+                    last: '<i class="mdi-chevron-double-right"></i>',
                     previous: '<i class="mdi mdi-chevron-left"></i>',
                     next : '<i class="mdi mdi-chevron-right"></i>'
                 }
@@ -80,4 +82,30 @@
             columnDefs: [],
         });
     });
+
+    const editCategory = (button) =>{
+        let url_edit = $(button).data('url_edit');
+        let url_update = $(button).data('url_update');
+
+        $.ajax({
+            url : url_edit,
+            type: 'GET',
+            dataType: 'json',
+            success:(response) =>{
+                if(response.success){
+                    const modal = $('#editCategory');
+                    const form = modal.find('form');
+                    const select = $('#basicSelect');
+                    form.attr('action', url_update);
+                    form.find('input[name=title]').val(response.data.title);
+                    form.find(
+                        `select[name="parent_id"] option[value="${response.data.parent_id}"]`
+                        ).attr('selected', true)
+                        
+                        modal.modal('show')
+                    }
+                    
+            }
+        })
+    }
 </script>

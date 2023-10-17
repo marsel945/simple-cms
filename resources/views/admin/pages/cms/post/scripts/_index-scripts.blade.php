@@ -7,6 +7,8 @@
             serverSide: true,
             language:{
                 paginate:{
+                    first: '<i class="mdi-chevron-double-left"></i>',
+                    last: '<i class="mdi-chevron-double-right"></i>',
                     previous: '<i class="mdi mdi-chevron-left"></i>',
                     next : '<i class="mdi mdi-chevron-right"></i>'
                 }
