@@ -9,7 +9,7 @@
                 <a href="{{ route('dashboard') }}" class="nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i class="nav-icon fe fe-home me-2"></i> Dashboard</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link   collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCMS"
+                <a class="nav-link  collapsed {{  preg_match('/cms/i',Request::route()->getPrefix()) ? 'active' : '' }} " href="#" data-bs-toggle="collapse" data-bs-target="#navCMS"
                     aria-expanded="false" aria-controls="navCMS">
                     <i class="nav-icon fe fe-book-open me-2"></i> CMS
                 </a>
