@@ -5,6 +5,9 @@
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
             <!-- Nav item -->
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link {{ Request::routeIs('dashboard') ? 'active' : '' }}"><i class="nav-icon fe fe-home me-2"></i> Dashboard</a>
+            </li>
             <li class="nav-item ">
                 <a class="nav-link   collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#navCMS"
                     aria-expanded="false" aria-controls="navCMS">
