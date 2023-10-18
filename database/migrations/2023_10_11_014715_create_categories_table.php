@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('categories');
             $table->string('slug')->unique();
-            $table->enum('status', ['live', 'draft']);
+            $table->enum('status', ['live', 'draft'])->default('live');
             $table->timestamps();
             $table->softDeletes();
         });

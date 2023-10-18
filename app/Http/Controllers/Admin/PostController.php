@@ -103,7 +103,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $data['categories'] = Category::all();
+        $data['categories'] = Category::where('status', '=', 'live')->get();
         $data['title'] = 'Add Post';
         return view('admin.pages.cms.post.add', compact('data'));
     }

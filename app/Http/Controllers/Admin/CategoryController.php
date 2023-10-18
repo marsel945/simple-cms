@@ -98,8 +98,6 @@ class CategoryController extends Controller
             $category->parent_id = $request->parent_id;
             $category->title = $request->title;
             $category->slug = $category->slug;
-            $category->status = 'draft';
-
             $category->save();
             DB::commit();
             return redirect()->back()->with('success', trans('response.success.store', ['data' => 'Category']));

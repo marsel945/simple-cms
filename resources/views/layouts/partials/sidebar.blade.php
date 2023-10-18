@@ -11,9 +11,8 @@
                     <i class="nav-icon fe fe-book-open me-2"></i> CMS
                 </a>
 
-
                 <div id="navCMS"
-                    class="collapse {{ substr(Request::route()->getPrefix(), 0, 3) == 'cms' ? 'show' : '' }}"
+                    class="collapse {{  preg_match('/cms/i',Request::route()->getPrefix()) ? 'show' : '' }}"
                     data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
@@ -23,7 +22,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  " href="{{ route('admin.cms.posts') }}">
+                            <a class="nav-link {{ Request::routeIs('admin.cms.posts') ? 'active' : '' }}   " href="{{ route('admin.cms.posts') }}">
                                 All Post
                             </a>
                         </li>
