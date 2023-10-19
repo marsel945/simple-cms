@@ -14,21 +14,15 @@
             <!-- Page header -->
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="border-bottom pb-3 mb-3 d-md-flex align-items-center justify-content-between">
-                    <div class="mb-3 mb-md-0">
-                        <h1 class="mb-1 h2 fw-bold">Add New Post</h1>
-                        <!-- Breadcrumb -->
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="admin-dashboard.html">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.cms.overview') }}">CMS</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Add New Post
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
+                    <!-- Breadcrumb -->
+                    @include('admin.layouts._breadcrumb',[
+                        'page' => 'Add New Post',
+                        'rootRoutePage' => route('dashboard'),
+                        'rootPage' => 'Dashboard',
+                        'routeSubPage' => route('admin.cms.overview'),
+                        'subPage'=> 'CMS',
+                        'active' => 'New Post'
+                    ])
                     <div>
                         <a href="{{ route('admin.cms.posts') }}" class="btn btn-outline-secondary">Back to All Post</a>
                     </div>

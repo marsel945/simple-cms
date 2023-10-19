@@ -24,21 +24,15 @@
             <!-- Page Header -->
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="border-bottom pb-3 mb-3 d-md-flex align-items-center justify-content-between">
-                    <div class="mb-3 mb-md-0">
-                        <h1 class="mb-1 h2 fw-bold">Category</h1>
-                        <!-- Breadcrumb -->
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="admin-dashboard.html">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="#">CMS</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Category
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
+                    <!-- Breadcrumb -->
+                    @include('admin.layouts._breadcrumb',[
+                        'page' => 'All Categories',
+                        'rootRoutePage' => route('dashboard'),
+                        'rootPage' => 'Dashboard',
+                        'routeSubPage' => route('admin.cms.overview'),
+                        'subPage'=> 'CMS',
+                        'active' => 'All Categories'
+                    ])
                     <div>
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCatgory">Add
                             New
