@@ -1,3 +1,12 @@
+@php
+    $pageTitle = "Add New Post";
+    $rootPageRoute = route('dashboard');
+    $rootPage = 'Dashboard';
+    $subPageRoute = route('admin.cms.overview');
+    $subPage = 'CMS';
+    $active = 'New Post';
+@endphp
+
 @extends('admin.index')
 
 @push('customCss')
@@ -15,14 +24,8 @@
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="border-bottom pb-3 mb-3 d-md-flex align-items-center justify-content-between">
                     <!-- Breadcrumb -->
-                    @include('admin.layouts._breadcrumb',[
-                        'page' => 'Add New Post',
-                        'rootRoutePage' => route('dashboard'),
-                        'rootPage' => 'Dashboard',
-                        'routeSubPage' => route('admin.cms.overview'),
-                        'subPage'=> 'CMS',
-                        'active' => 'New Post'
-                    ])
+                    <x-Admin.breadcrumb :pageTitle="$pageTitle" :rootPageRoute="$rootPageRoute" :rootPage="$rootPage" :subPageRoute="$subPageRoute" :subPage="$subPage" :active='$active'/>
+
                     <div>
                         <a href="{{ route('admin.cms.posts') }}" class="btn btn-outline-secondary">Back to All Post</a>
                     </div>
