@@ -1,3 +1,11 @@
+@php
+    $pageTitle = "CMS Dashboard";
+    $rootPageRoute = route('dashboard');
+    $rootPage = 'Dashboard';
+    $subPageRoute = route('admin.cms.overview');
+    $subPage = 'CMS';
+    $active = 'Overview';
+@endphp
 @extends('admin.index')
 
 @section('content')
@@ -7,21 +15,9 @@
                 <!-- Page header -->
                 <div class="border-bottom pb-3 mb-3 d-flex align-items-center justify-content-between">
                     <div class="">
-                        <h1 class="mb-1 h2 fw-bold">CMS Dashboard</h1>
                         <!-- Breadcrumb -->
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="admin-dashboard.html">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#">CMS</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Overview
-                                </li>
-                            </ol>
-                        </nav>
+                        <x-Admin.breadcrumb :pageTitle="$pageTitle" :rootPageRoute="$rootPageRoute" :rootPage="$rootPage" :subPageRoute="$subPageRoute" :subPage="$subPage" :active='$active'/>
+
                     </div>
                     <div>
                         <a href="{{ route('admin.cms.posts.create') }}" class="btn btn-primary">New Post</a>
