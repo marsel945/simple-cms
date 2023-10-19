@@ -1,3 +1,12 @@
+@php
+    $pageTitle = "Categories";
+    $rootPageRoute = route('dashboard');
+    $rootPage = 'Dashboard';
+    $subPageRoute = route('admin.cms.overview');
+    $subPage = 'CMS';
+    $active = 'Categories';
+@endphp
+
 @extends('admin.index')
 
 @push('customCss')
@@ -25,14 +34,8 @@
             <div class="col-lg-12 col-md-12 col-12">
                 <div class="border-bottom pb-3 mb-3 d-md-flex align-items-center justify-content-between">
                     <!-- Breadcrumb -->
-                    @include('admin.layouts._breadcrumb',[
-                        'page' => 'All Categories',
-                        'rootRoutePage' => route('dashboard'),
-                        'rootPage' => 'Dashboard',
-                        'routeSubPage' => route('admin.cms.overview'),
-                        'subPage'=> 'CMS',
-                        'active' => 'All Categories'
-                    ])
+                    <x-Admin.breadcrumb :pageTitle="$pageTitle" :rootPageRoute="$rootPageRoute" :rootPage="$rootPage" :subPageRoute="$subPageRoute" :subPage="$subPage" :active='$active'/>
+
                     <div>
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCatgory">Add
                             New
