@@ -63,7 +63,7 @@
                     </div>
                     <!-- List unstyled -->
 
-                    <div class="overflow-x-hidden">
+                    <div class="" style="width: 100%; overflow-wrap: break-word;">
                         {!! $data['post']->content !!}
                     </div>
 
